@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "yai://schemas/policy.v1.schema.json",
+  "title": "policy.v1",
+  "type": "object",
+  "additionalProperties": true,
+  "description": "Policy baseline schema (runtime-enforceable). TODO: finalize."
+}

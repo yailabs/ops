@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "yai://schemas/evidence_index.v1.schema.json",
+  "title": "evidence_index.v1",
+  "type": "object",
+  "additionalProperties": true,
+  "description": "Formal index of evidence artifacts for a run/wave. TODO: finalize."
+}

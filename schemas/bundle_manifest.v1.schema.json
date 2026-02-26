@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "yai://schemas/bundle_manifest.v1.schema.json",
+  "title": "bundle_manifest.v1",
+  "type": "object",
+  "additionalProperties": true,
+  "description": "Wave/bundle manifest. TODO: finalize fields, hashing, references."
+}
