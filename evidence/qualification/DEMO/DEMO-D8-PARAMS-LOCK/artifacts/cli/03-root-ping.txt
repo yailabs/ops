@@ -1,0 +1,2 @@
+$ yai root ping
+{"status":"pong"}

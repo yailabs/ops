@@ -1,0 +1,2 @@
+$ yai root ping
+[CLI] Failed to connect to root plane

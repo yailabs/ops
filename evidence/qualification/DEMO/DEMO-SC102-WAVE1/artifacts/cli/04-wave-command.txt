@@ -1,0 +1,2 @@
+$ cd docs/40-qualification/QT-0.1-003-SC102-WAVE1
+$ ./run/run-wave.sh

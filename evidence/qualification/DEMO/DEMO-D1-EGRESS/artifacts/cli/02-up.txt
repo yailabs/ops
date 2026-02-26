@@ -1,0 +1,2 @@
+$ yai up --ws demo-d1 --detach --allow-degraded
+{"ok":true,"mode":"up","ws":"demo-d1"}

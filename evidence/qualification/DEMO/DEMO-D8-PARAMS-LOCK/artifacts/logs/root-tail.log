@@ -1,0 +1,120 @@
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='wrt3-run-001'
+[ROOT] FORWARD cmd=769
+[ROOT] Client disconnected
+
+=== ROOT START 1772018907 ===
+[ROOT] Listening on /Users/francescomaiomascio/.yai/run/root/root.sock
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='wrt3-run-002'
+[ROOT] FORWARD cmd=769
+[ROOT] Client disconnected
+
+=== ROOT START 1772018908 ===
+[ROOT] Listening on /Users/francescomaiomascio/.yai/run/root/root.sock
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='wrt3-run-003'
+[ROOT] FORWARD cmd=769
+[ROOT] Client disconnected
+
+=== ROOT START 1772018910 ===
+[ROOT] Listening on /Users/francescomaiomascio/.yai/run/root/root.sock
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+
+=== ROOT START 1772018922 ===
+[ROOT] Listening on /Users/francescomaiomascio/.yai/run/root/root.sock
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+
+=== ROOT START 1772018934 ===
+[ROOT] Listening on /Users/francescomaiomascio/.yai/run/root/root.sock
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=1 arming=0 ws='system'
+[ROOT] Unauthorized command
+[ROOT] Client disconnected
+
+=== ROOT START 1772018988 ===
+[ROOT] Listening on /Users/francescomaiomascio/.yai/run/root/root.sock
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected
+[ROOT] Client connected
+[ROOT] HANDSHAKE role=2 arming=1 ws='system'
+[ROOT] FORWARD cmd=257
+[ROOT] Client disconnected

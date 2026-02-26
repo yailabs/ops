@@ -1,0 +1,4 @@
+run/.state/
+target/_artifact_store/
+evidence.local/*
+!evidence.local/.gitkeep

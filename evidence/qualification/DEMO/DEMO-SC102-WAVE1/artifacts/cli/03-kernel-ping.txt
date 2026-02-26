@@ -1,0 +1,2 @@
+$ yai kernel --arming --role operator ping
+ERR: cannot connect to root plane

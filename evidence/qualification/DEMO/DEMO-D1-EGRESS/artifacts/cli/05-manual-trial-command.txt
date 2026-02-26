@@ -1,0 +1,2 @@
+$ cd docs/40-qualification/RT-0.1-001-D1-EGRESS-CURL
+$ BASELINE_ID=baseline-deny TARGET_PROFILE=local ./run/run-three.sh

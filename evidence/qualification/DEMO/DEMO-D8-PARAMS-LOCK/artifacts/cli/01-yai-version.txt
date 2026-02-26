@@ -1,0 +1,2 @@
+$ yai --version
+yai-cli/1.0
