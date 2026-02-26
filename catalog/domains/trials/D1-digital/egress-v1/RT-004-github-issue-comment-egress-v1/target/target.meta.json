@@ -1,0 +1,7 @@
+{
+  "name": "GitHub Issues API",
+  "provider": "github",
+  "effect": "issue_comment_create",
+  "api": "POST /repos/{owner}/{repo}/issues/{issue_number}/comments",
+  "auth": "gh cli token with repo scope"
+}

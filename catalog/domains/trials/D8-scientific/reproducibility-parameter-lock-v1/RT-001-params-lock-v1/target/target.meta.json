@@ -1,0 +1,7 @@
+{
+  "name": "local-filesystem-publish-gate",
+  "type": "file-target",
+  "runtime": "local",
+  "license": "N/A",
+  "notes": "Trial uses local publish directory to verify fail-closed behavior when reproducibility lock is invalid."
+}

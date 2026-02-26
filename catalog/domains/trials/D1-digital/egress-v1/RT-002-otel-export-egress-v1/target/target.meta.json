@@ -1,0 +1,14 @@
+{
+  "name": "curl",
+  "usage": "OTLP/HTTP export simulation",
+  "version_probe": "curl --version",
+  "request": {
+    "method": "POST",
+    "path": "/v1/traces",
+    "content_type": "application/json"
+  },
+  "safety": {
+    "external_network": false,
+    "local_only": true
+  }
+}
