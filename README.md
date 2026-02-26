@@ -7,3 +7,9 @@ This repo is the canonical home for:
 - Evidence bundles and wave releases
 - Qualification demos and runbooks
 - Validation artifacts and reports
+
+## Structure
+- catalog/ : scenarios, domain packs, trials, gates
+- evidence/ : qualification + waves + validation + reports
+- official/ : versioned official document set (funding/procurement)
+- collateral/ : field collateral (deck/demo/offer/ROI)
