@@ -1,0 +1,14 @@
+{
+  "name": "curl",
+  "usage": "S3-style upload simulation",
+  "version_probe": "curl --version",
+  "request": {
+    "method": "PUT",
+    "path": "/bucket/object",
+    "content_type": "application/octet-stream"
+  },
+  "safety": {
+    "external_network": false,
+    "local_only": true
+  }
+}

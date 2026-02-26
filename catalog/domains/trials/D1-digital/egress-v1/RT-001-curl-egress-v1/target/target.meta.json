@@ -1,0 +1,13 @@
+{
+  "name": "curl",
+  "type": "cli-http-client",
+  "version_probe": "curl --version",
+  "license": "curl license",
+  "execution": {
+    "precheck_command": "curl -sS -o /dev/null -w '%{http_code}' http://127.0.0.1:8443/"
+  },
+  "safety": {
+    "external_network": false,
+    "local_only": true
+  }
+}
