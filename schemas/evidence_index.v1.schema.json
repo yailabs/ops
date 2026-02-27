@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "yai://schemas/evidence_index.v1.schema.json",
+  "title": "evidence_index.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["index_version", "scope", "artifacts"],
+  "properties": {
+    "index_version": {
+      "type": "string",
+      "const": "v1",
+      "description": "Schema version for evidence index."
+    },
+
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["run", "wave", "bundle"],
+          "description": "Index scope. 'run' indexes a run directory; 'wave/bundle' indexes an immutable release bundle."
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Scope identifier (e.g., run-001 or WAVE-1-YYYY-MM-DD-<shortsha>)."
+        },
+        "alias": {
+          "type": "string",
+          "description": "Optional human-friendly alias (e.g., SC102-WAVE1-LAUNCH)."
+        },
+        "scenario_id": {
+          "type": "string",
+          "description": "Optional scenario identifier (e.g., SC102)."
+        },
+        "domain_id": {
+          "type": "string",
+          "description": "Optional domain identifier (e.g., D1-digital)."
+        },
+        "path": {
+          "type": "string",
+          "description": "Optional path to the indexed root, relative to repo root."
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Index generation timestamp (ISO 8601)."
+        },
+        "generated_by": {
+          "type": "string",
+          "description": "Generator identity (human or system)."
+        }
+      }
+    },
+
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "description": "Optional policy identifier used for this run/wave."
+        },
+        "policy_sha256": {
+          "$ref": "#/$defs/sha256",
+          "description": "Optional sha256 of policy baseline file(s) when applicable."
+        },
+        "pins": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "yai": { "$ref": "#/$defs/pin" },
+            "yai_cli": { "$ref": "#/$defs/pin" },
+            "yai_law_or_specs": { "$ref": "#/$defs/pin" },
+            "infra": { "$ref": "#/$defs/pin" },
+            "ops": { "$ref": "#/$defs/pin" }
+          },
+          "description": "Optional pinned baselines for reproducibility and audit correlation."
+        }
+      },
+      "description": "Optional baseline metadata for correlating evidence to a pinned configuration."
+    },
+
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "manifest_path": {
+          "type": "string",
+          "description": "Optional path to MANIFEST.json (for wave/bundle scope)."
+        },
+        "index_path": {
+          "type": "string",
+          "description": "Optional path to INDEX.md (human index)."
+        },
+        "verify_procedure_path": {
+          "type": "string",
+          "description": "Optional path to verification procedure (e.g., verify.sh)."
+        },
+        "verify_outputs_path": {
+          "type": "string",
+          "description": "Optional path to verification outputs directory (e.g., verify/)."
+        },
+        "report_path": {
+          "type": "string",
+          "description": "Optional path to a report derived from this evidence."
+        }
+      },
+      "description": "Optional pointers to top-level artifacts related to this evidence scope."
+    },
+
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "artifact_count": { "type": "integer", "minimum": 0 },
+        "total_bytes": { "type": "integer", "minimum": 0 },
+        "kinds": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "description": "Count by artifact kind."
+        },
+        "contains_personal_data": {
+          "type": "boolean",
+          "description": "True if any artifact is marked as containing personal data."
+        }
+      },
+      "description": "Optional aggregate summary to simplify audit review."
+    },
+
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/artifact" },
+      "description": "Inventory of evidence artifacts with integrity hashes and classification."
+    },
+
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Extension area for scenario-specific or experimental fields."
+    }
+  },
+
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$",
+      "description": "SHA-256 hex digest (64 chars)."
+    },
+
+    "pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repo", "sha"],
+      "properties": {
+        "repo": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Repository identifier (e.g., yai-labs/yai)."
+        },
+        "sha": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{7,40}$",
+          "description": "Pinned commit SHA (short or full)."
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional ref (tag/branch) used when producing the evidence; SHA remains authoritative."
+        }
+      }
+    },
+
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "kind"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Path relative to the evidence scope root."
+        },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "manifest",
+            "index",
+            "policy",
+            "run_input",
+            "run_output",
+            "decision_record",
+            "metrics",
+            "log",
+            "trace",
+            "verify",
+            "report",
+            "asset",
+            "other"
+          ],
+          "description": "Artifact classification for navigation and audit."
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional media type (e.g., application/json, text/markdown)."
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Optional size in bytes."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["input", "output", "derived", "verification", "documentation", "unknown"],
+          "default": "unknown",
+          "description": "Artifact role within the run/wave lifecycle."
+        },
+        "produced_by": {
+          "type": "string",
+          "description": "Optional producer identifier (tool/script/component)."
+        },
+        "source": {
+          "type": "string",
+          "description": "Optional source pointer (e.g., originating run id/path)."
+        },
+        "classification": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "confidentiality": {
+              "type": "string",
+              "enum": ["public", "internal", "restricted"],
+              "default": "internal",
+              "description": "Intended sharing classification."
+            },
+            "contains_personal_data": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether artifact contains personal data (GDPR trigger)."
+            },
+            "redaction": {
+              "type": "string",
+              "enum": ["none", "basic", "strict"],
+              "default": "none",
+              "description": "Redaction posture applied to the artifact."
+            }
+          },
+          "description": "Optional privacy/security classification for the artifact."
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Optional tags for grouping/search."
+        }
+      }
+    }
+  }
+}

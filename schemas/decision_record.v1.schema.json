@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "yai://schemas/decision_record.v1.schema.json",
+  "title": "decision_record.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_version", "event", "identity", "authority", "decision", "outcome", "baseline"],
+  "properties": {
+    "record_version": {
+      "type": "string",
+      "const": "v1",
+      "description": "Schema version for decision record lines (JSONL)."
+    },
+
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "timestamp", "kind"],
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Unique event identifier for this decision record."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Event timestamp (ISO 8601)."
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["decision_record"],
+          "description": "Event kind discriminator."
+        },
+        "scenario_id": {
+          "type": "string",
+          "description": "Optional scenario identifier (e.g., SC102)."
+        },
+        "domain_id": {
+          "type": "string",
+          "description": "Optional domain identifier (e.g., D1-digital)."
+        },
+        "run_id": {
+          "type": "string",
+          "description": "Optional run identifier."
+        },
+        "wave_id": {
+          "type": "string",
+          "description": "Optional wave/bundle identifier."
+        },
+        "workspace_id": {
+          "type": "string",
+          "description": "Optional workspace identifier."
+        },
+        "trace_id": {
+          "type": "string",
+          "description": "Optional trace identifier for correlation."
+        }
+      }
+    },
+
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Identity identifier (implementation-defined)."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["human", "service", "agent", "system", "unknown"],
+          "default": "unknown",
+          "description": "Identity type classification."
+        },
+        "labels": {
+          "type": "object",
+          "additionalProperties": { "type": "string" },
+          "description": "Optional identity labels/tags for audit context."
+        }
+      }
+    },
+
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode"],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["granted", "denied", "unknown"],
+          "description": "Whether authority was granted for this decision evaluation context."
+        },
+        "role": {
+          "type": "string",
+          "description": "Optional role identifier or name."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Optional scope (workspace/project/system)."
+        },
+        "evidence": {
+          "type": "string",
+          "description": "Optional pointer to authority evidence (token/session ref), if safe to record."
+        }
+      }
+    },
+
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy_id"],
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Policy identifier used for evaluation."
+        },
+        "policy_sha256": {
+          "$ref": "#/$defs/sha256",
+          "description": "Optional policy hash used for verification."
+        },
+        "pins": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "yai": { "$ref": "#/$defs/pin" },
+            "yai_cli": { "$ref": "#/$defs/pin" },
+            "yai_law_or_specs": { "$ref": "#/$defs/pin" }
+          },
+          "description": "Optional pinned baselines for correlation to wave manifests."
+        }
+      }
+    },
+
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_id", "action"],
+      "properties": {
+        "decision_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Decision identifier (unique within run/workspace)."
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Proposed action name (implementation-defined)."
+        },
+        "effect": {
+          "$ref": "#/$defs/effect_descriptor",
+          "description": "Optional effect descriptor if the decision includes an external side effect."
+        },
+        "inputs": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Optional structured inputs used for decision evaluation (avoid sensitive raw data)."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes for debugging/audit."
+        }
+      }
+    },
+
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result"],
+      "properties": {
+        "result": {
+          "type": "string",
+          "enum": ["allow", "deny", "fail"],
+          "description": "Outcome classification."
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Machine-readable reason code for deny/fail."
+        },
+        "message": {
+          "type": "string",
+          "description": "Optional human-readable outcome message."
+        },
+        "latency_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Optional evaluation latency in milliseconds."
+        }
+      }
+    },
+
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidence_ref" },
+      "description": "Optional pointers to evidence artifacts produced by this decision/outcome."
+    },
+
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Extension area for scenario-specific fields."
+    }
+  },
+
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$",
+      "description": "SHA-256 hex digest."
+    },
+
+    "pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repo", "sha"],
+      "properties": {
+        "repo": { "type": "string", "minLength": 1 },
+        "sha": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{7,40}$",
+          "description": "Pinned commit SHA (short or full)."
+        },
+        "ref": { "type": "string", "minLength": 1 }
+      }
+    },
+
+    "effect_descriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["network_egress", "storage_write", "provider_call", "artifact_emit", "other"],
+          "description": "Effect class."
+        },
+        "target": {
+          "type": "string",
+          "description": "Target selector (hostname, bucket, provider name, etc.)."
+        },
+        "method": {
+          "type": "string",
+          "description": "Optional method/verb selector (HTTP method, provider verb)."
+        },
+        "resource": {
+          "type": "string",
+          "description": "Optional resource selector (path prefix, repo/issue id, object key prefix)."
+        }
+      }
+    },
+
+    "evidence_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Path to evidence artifact (relative to run or bundle root, implementation-defined)."
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256",
+          "description": "Optional integrity hash for the evidence artifact."
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["log", "trace", "metrics", "artifact", "report", "other"],
+          "description": "Evidence kind classification."
+        }
+      }
+    }
+  }
+}
