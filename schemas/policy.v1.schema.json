@@ -3,6 +3,280 @@
   "$id": "yai://schemas/policy.v1.schema.json",
   "title": "policy.v1",
   "type": "object",
-  "additionalProperties": true,
-  "description": "Policy baseline schema (runtime-enforceable). TODO: finalize."
+  "additionalProperties": false,
+  "required": ["policy_version", "policy", "defaults"],
+  "properties": {
+    "policy_version": {
+      "type": "string",
+      "const": "v1",
+      "description": "Schema version for this policy format."
+    },
+
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "scope", "mode"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Canonical policy identifier (stable across releases)."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable policy name."
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["target"],
+          "properties": {
+            "target": {
+              "type": "string",
+              "enum": ["repo", "workspace", "run", "bundle", "system"],
+              "description": "What this policy governs."
+            },
+            "scenario_id": {
+              "type": "string",
+              "description": "Optional scenario identifier (e.g., SC102)."
+            },
+            "domain_id": {
+              "type": "string",
+              "description": "Optional domain identifier (e.g., D1-digital)."
+            }
+          }
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["enforce", "audit"],
+          "description": "enforce = fail-closed; audit = record-only (no blocking)."
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Policy creation timestamp (ISO 8601)."
+        },
+        "owner": {
+          "type": "string",
+          "description": "Policy owner identifier (team/role)."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes for reviewers."
+        }
+      }
+    },
+
+    "defaults": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision"],
+      "properties": {
+        "decision": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["on_unknown_effect"],
+          "properties": {
+            "on_unknown_effect": {
+              "type": "string",
+              "enum": ["deny", "fail"],
+              "description": "Default behavior when an effect is not matched by any rule."
+            },
+            "on_rule_error": {
+              "type": "string",
+              "enum": ["deny", "fail"],
+              "default": "fail",
+              "description": "Behavior when rule evaluation fails (parse/eval error)."
+            }
+          }
+        }
+      },
+      "description": "Policy defaults for fail-closed behavior."
+    },
+
+    "effects": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/effect_rule" },
+      "description": "Allow/deny rules for external effects (egress, storage, provider actions, artifact emission)."
+    },
+
+    "authorities": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/role" },
+          "description": "Optional role definitions used by the policy."
+        },
+        "bindings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/authority_binding" },
+          "description": "Optional bindings between identities and roles."
+        }
+      },
+      "description": "Optional identity/authority model used by the policy."
+    },
+
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "type": "boolean", "default": false },
+        "rules": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/retention_rule" }
+        }
+      },
+      "description": "Optional retention posture for evidence artifacts (declared; enforcement depends on runtime support)."
+    },
+
+    "telemetry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "otel_enabled": { "type": "boolean", "default": false },
+        "redaction": {
+          "type": "string",
+          "enum": ["none", "basic", "strict"],
+          "default": "basic",
+          "description": "Telemetry redaction posture."
+        }
+      },
+      "description": "Optional telemetry posture."
+    },
+
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Extension area for domain-specific or experimental fields."
+    }
+  },
+
+  "$defs": {
+    "effect_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "effect", "action"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Rule identifier (stable within the policy)."
+        },
+        "effect": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["network_egress", "storage_write", "provider_call", "artifact_emit", "other"],
+              "description": "Effect class."
+            },
+            "target": {
+              "type": "string",
+              "description": "Target selector (e.g., hostname, bucket, provider name, path prefix)."
+            },
+            "method": {
+              "type": "string",
+              "description": "Optional selector (e.g., HTTP method or provider verb)."
+            },
+            "resource": {
+              "type": "string",
+              "description": "Optional resource selector (e.g., repo, issue id, object key prefix)."
+            }
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/condition" },
+          "description": "Optional conditions (attribute-based constraints)."
+        },
+        "action": {
+          "type": "string",
+          "enum": ["allow", "deny", "fail"],
+          "description": "Policy action when rule matches."
+        },
+        "reason_code": {
+          "type": "string",
+          "description": "Machine-readable reason code associated with deny/fail."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional reviewer notes."
+        }
+      }
+    },
+
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "op", "value"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Attribute key (e.g., identity.role, workspace.id, request.ip)."
+        },
+        "op": {
+          "type": "string",
+          "enum": ["eq", "neq", "in", "nin", "regex", "prefix", "suffix"],
+          "description": "Comparison operator."
+        },
+        "value": {
+          "description": "Comparison value (string/number/boolean/array depending on op)."
+        }
+      }
+    },
+
+    "role": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" }
+      }
+    },
+
+    "authority_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identity", "role_id"],
+      "properties": {
+        "identity": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Identity selector (implementation-defined)."
+        },
+        "role_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Role id defined in roles[]."
+        }
+      }
+    },
+
+    "retention_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_kind", "duration_days"],
+      "properties": {
+        "artifact_kind": {
+          "type": "string",
+          "enum": ["manifest", "index", "policy", "run", "verify", "report", "asset", "other"],
+          "description": "Artifact kind affected by retention."
+        },
+        "duration_days": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Retention duration in days."
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
 }

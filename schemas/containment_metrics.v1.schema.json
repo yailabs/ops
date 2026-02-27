@@ -3,6 +3,223 @@
   "$id": "yai://schemas/containment_metrics.v1.schema.json",
   "title": "containment_metrics.v1",
   "type": "object",
-  "additionalProperties": true,
-  "description": "Metrics emitted by containment/enforcement runs. TODO: finalize."
+  "additionalProperties": false,
+  "required": ["metrics_version", "run", "summary"],
+  "properties": {
+    "metrics_version": {
+      "type": "string",
+      "const": "v1",
+      "description": "Schema version for containment metrics."
+    },
+
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_id", "scenario_id"],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Run identifier."
+        },
+        "scenario_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Scenario identifier (e.g., SC102)."
+        },
+        "domain_id": {
+          "type": "string",
+          "description": "Optional domain identifier (e.g., D1-digital)."
+        },
+        "wave_id": {
+          "type": "string",
+          "description": "Optional wave/bundle identifier this run is associated with."
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Run start timestamp (ISO 8601)."
+        },
+        "ended_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Run end timestamp (ISO 8601)."
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "os": { "type": "string" },
+            "arch": { "type": "string" },
+            "containerized": { "type": "boolean" },
+            "ci": { "type": "boolean" },
+            "notes": { "type": "string" }
+          },
+          "description": "Optional environment descriptors used for reproducibility context."
+        }
+      }
+    },
+
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "deny_count", "allow_count", "fail_count"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "fail", "unknown"],
+          "description": "Overall run outcome from a containment perspective."
+        },
+        "deny_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of denied effects/outcomes."
+        },
+        "allow_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of allowed effects/outcomes."
+        },
+        "fail_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of hard failures (fail-closed / rule errors / execution failures)."
+        },
+        "reason_code_counts": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "description": "Map of reason_code -> count."
+        }
+      }
+    },
+
+    "network": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attempted_connections": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of connection attempts observed."
+        },
+        "connections_established": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of connections successfully established."
+        },
+        "bytes_out": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Bytes transmitted outwards (where instrumented)."
+        },
+        "bytes_in": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Bytes received (where instrumented)."
+        },
+        "targets": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/effect_target_metric" },
+          "description": "Per-target network metrics (optional)."
+        }
+      },
+      "description": "Network containment metrics (optional, when instrumented)."
+    },
+
+    "storage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "writes_attempted": { "type": "integer", "minimum": 0 },
+        "writes_succeeded": { "type": "integer", "minimum": 0 },
+        "bytes_written": { "type": "integer", "minimum": 0 },
+        "targets": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/effect_target_metric" },
+          "description": "Per-target storage metrics (optional)."
+        }
+      },
+      "description": "Storage containment metrics (optional)."
+    },
+
+    "providers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "calls_attempted": { "type": "integer", "minimum": 0 },
+        "calls_succeeded": { "type": "integer", "minimum": 0 },
+        "targets": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/effect_target_metric" },
+          "description": "Per-provider metrics (optional)."
+        }
+      },
+      "description": "Provider-call containment metrics (optional)."
+    },
+
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "files_emitted": { "type": "integer", "minimum": 0 },
+        "bytes_emitted": { "type": "integer", "minimum": 0 },
+        "delta_bytes": {
+          "type": "integer",
+          "description": "Optional delta between expected and actual artifact footprint."
+        }
+      },
+      "description": "Artifact emission metrics (optional)."
+    },
+
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Extension area for domain-specific metrics."
+    }
+  },
+
+  "$defs": {
+    "effect_target_metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "attempted", "succeeded"],
+      "properties": {
+        "target": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Target selector (hostname, bucket, provider, etc.)."
+        },
+        "attempted": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Attempts observed for this target."
+        },
+        "succeeded": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Successful operations for this target."
+        },
+        "denied": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Denied operations for this target."
+        },
+        "failed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Hard-failed operations for this target."
+        },
+        "bytes_out": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Bytes out for this target (when applicable)."
+        },
+        "bytes_written": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Bytes written for this target (when applicable)."
+        }
+      }
+    }
+  }
 }
