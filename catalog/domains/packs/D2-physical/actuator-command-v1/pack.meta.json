@@ -1,23 +1,51 @@
 {
   "id": "D2-physical/actuator-command-v1",
   "d_major": "D2-physical",
-  "title": "Physical - Actuator Command Authorization & Safety Window",
+  "title": "Physical — Actuator Command Authorization & Safety Window",
   "version": 1,
   "revision": 1,
+  "status": "planned",
+  "description": "Domain pack defining forbidden actuator commands in the physical domain (authority, arming, safety window, and target allowlists) for SC-102 qualification using simulation-only vectors.",
+
+  "primary_runtime_effect_domain": "providers",
+  "secondary_runtime_effect_domains": ["control"],
+
+  "runtime_grammar_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
+
   "forbidden_effects": [
     {
       "effect": "provider.actuator.command",
-      "description": "Actuator command issued without an active authority contract or allowed command set."
+      "description": "Actuator command issued without an active authority contract, without arming, or outside the allowed command set/target allowlist."
     },
     {
       "effect": "provider.actuator.command.outside_safety_window",
-      "description": "Actuator command issued outside a permitted safety window or interlock constraint."
+      "description": "Actuator command issued outside a permitted safety window or violating an interlock constraint."
     }
   ],
-  "primary_runtime_effect_domain": "providers",
-  "audit_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
+
+  "expected_outcomes": {
+    "deny_baseline": {
+      "default_outcome": "deny",
+      "default_severity": "high"
+    },
+    "quarantine_baseline": {
+      "default_outcome": "quarantine",
+      "default_severity": "critical"
+    },
+    "allow_baseline": {
+      "default_outcome": "allow",
+      "default_severity": "info"
+    }
+  },
+
   "safety": {
     "vector_policy": "simulation-only",
-    "notes": "Vectors must target a simulated actuator provider. No real hardware actuation is permitted for v0.1 qualification."
+    "notes": "Vectors MUST target a simulated actuator provider/adapter. No real hardware actuation is permitted for v0.1 qualification."
+  },
+
+  "links": {
+    "scenario_specs": ["catalog/scenarios/SC-102.md"],
+    "trials_root": "catalog/domains/trials/D2-physical/actuator-command-v1/",
+    "evidence_root": "evidence/qualification/"
   }
 }

@@ -1,6 +1,6 @@
 {
   "vector_id": "safe-actuator-cmd-001",
-  "description": "Simulated actuator command attempt to a non-contracted actuator and/or outside safety window.",
+  "description": "Simulation-only actuator command attempt targeting a non-contracted actuator (primary) and declared outside-hours time (secondary).",
   "stimulus": {
     "type": "provider.actuator.command",
     "mode": "sim_adapter_only",
@@ -11,6 +11,7 @@
   },
   "safety": {
     "simulation_only": true,
-    "no_real_hardware": true
+    "no_real_hardware": true,
+    "notes": "This vector MUST be executed against a mock/simulated actuator provider. Real hardware is out-of-scope for v0.1."
   }
 }

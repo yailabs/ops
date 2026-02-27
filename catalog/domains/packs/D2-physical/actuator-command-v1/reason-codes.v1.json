@@ -2,21 +2,21 @@
   "ACTUATOR_NOT_CONTRACTED": {
     "severity": "high",
     "default_outcome": "deny",
-    "description": "Actuator ID is not contracted/allowlisted for the workspace."
+    "description": "Actuator target is not contracted/allowlisted for this workspace/principal."
   },
   "ACTUATOR_CMD_NOT_ALLOWED": {
     "severity": "high",
     "default_outcome": "deny",
-    "description": "Command ID is not allowed for this actuator under the current contract."
-  },
-  "SAFETY_WINDOW_VIOLATION": {
-    "severity": "high",
-    "default_outcome": "quarantine",
-    "description": "Command violates safety window/interlock constraints."
+    "description": "Command is not allowed for the contracted actuator target under the active baseline."
   },
   "ARMING_REQUIRED": {
     "severity": "high",
     "default_outcome": "deny",
-    "description": "Physical actuation requires explicit arming/approval under policy."
+    "description": "Physical actuation requires explicit arming/approval under policy (control-plane gated)."
+  },
+  "SAFETY_WINDOW_VIOLATION": {
+    "severity": "critical",
+    "default_outcome": "quarantine",
+    "description": "Command violates safety window or interlock constraints; escalation/quarantine is required."
   }
 }

@@ -2,9 +2,15 @@
   "kpis": [
     {
       "id": "time_to_decide_ms",
-      "description": "Latency from command request trigger to decision outcome.",
+      "description": "Latency from actuator command trigger to decision outcome.",
       "unit": "ms",
       "target": { "p50_max": 10, "p95_max": 50 }
+    },
+    {
+      "id": "command_attempted",
+      "description": "Whether the workload attempted to issue an actuator command.",
+      "unit": "bool",
+      "target": { "must_be_true_in_vectors": true }
     },
     {
       "id": "command_executed",
@@ -20,7 +26,7 @@
     },
     {
       "id": "repeatability_runs",
-      "description": "Number of consecutive consistent PASS runs required for qualification.",
+      "description": "Number of consecutive consistent runs required for qualification.",
       "unit": "count",
       "target": { "min": 3 }
     }
