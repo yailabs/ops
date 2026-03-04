@@ -3,6 +3,20 @@
 ## Scope
 This document defines governance rules for yai-ops content production, review, and publication.
 
+## Cross-repo authority context
+
+`yai-ops` operates inside the platform governance chain:
+
+`yai-law` -> `yai-sdk` -> `yai-cli` -> `yai` -> `yai-ops`
+
+Authority boundaries:
+- Normative law authority: `yai-law`
+- SDK/CLI interface authority: `yai-sdk`, `yai-cli`
+- Runtime implementation authority: `yai`
+- Operational evidence and publication packaging: `yai-ops`
+
+`yai-ops` must not redefine normative contract semantics; it must evidence them.
+
 ## Repository layers (non-negotiable boundaries)
 yai-ops is organized into three layers with different immutability and publication rules:
 
@@ -51,4 +65,4 @@ Minimum governance roles (can be held by the same person in early-stage mode):
 - Evidence corrections are additive (new wave/run), never destructive.
 
 ## Source of truth for the execution plan
-`TRACKING-HARDENING.md` is the canonical “execution plan” and Definition of Done reference for hardening and repository completion.
+`TRACKING-HARDENING.md` is the canonical execution plan and Definition of Done reference for hardening and repository completion.

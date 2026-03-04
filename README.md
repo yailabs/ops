@@ -1,41 +1,63 @@
-# yai-ops
+# yai-ops — Enterprise Operational Evidence Repository for YAI
 
-Operational repository for YAI. This repo contains the official document set, verifiable evidence bundles (waves), qualification assets, validation outputs, reports, and field collateral.
+`yai-ops` is the canonical operational repository for enterprise validation, qualification evidence, and official publication collateral for the YAI platform.
 
-## Purpose
-yai-ops is the canonical home for:
-- **OFFICIAL**: procurement / funding / partner-ready document set (versioned)
-- **EVIDENCE + WAVES**: append-only evidence bundles with manifests, indices, and verification outputs
-- **CATALOG**: scope map (scenarios, domains, packs, gates, trials)
-- **COLLATERAL**: field collateral (deck, demo scripts, pilot offer, ROI, SOW) aligned to evidence baselines
+## Platform role
 
-This repository is designed to be readable and actionable for:
-1) Procurement + Legal (OFFICIAL)
-2) Security/Compliance + Auditor (EVIDENCE/WAVES + verify)
-3) Engineering/Partner (CATALOG + SCHEMAS + TOOLS)
+Dependency and authority chain:
 
-## Golden rule (claims must be traceable)
-Any claim made in OFFICIAL or COLLATERAL MUST be traceable to evidence:
+`yai-law` -> `yai-sdk` -> `yai-cli` -> `yai` -> `yai-ops`
 
-CLAIM → WAVE (MANIFEST/INDEX) → RUN → POLICY/BASELINE → VERIFY OUTPUT → EVIDENCE FILES
+`yai-ops` is where conformance, assurance, and field-readiness claims are evidenced.
+It does not redefine normative law contracts.
 
-If a claim is not traceable, it must be removed or explicitly marked as non-verified (OFFICIAL should avoid non-verified claims).
+## Repository mission
+
+`yai-ops` is the canonical home for:
+- **OFFICIAL**: procurement/funding/partner-ready publication set
+- **EVIDENCE + WAVES**: append-only evidence bundles with manifests, indices, verification outputs
+- **CATALOG**: scenarios/domains/packs/gates/trials scope model
+- **COLLATERAL**: field material aligned to verified evidence baselines
+
+Primary audiences:
+1. Procurement and Legal
+2. Security/Compliance and Auditors
+3. Engineering and Partners
+
+## Golden rule (traceability is mandatory)
+
+Any claim in OFFICIAL or COLLATERAL must be traceable:
+
+`CLAIM -> WAVE (MANIFEST/INDEX) -> RUN -> POLICY/BASELINE -> VERIFY OUTPUT -> EVIDENCE FILES`
+
+Claims lacking evidence traceability must be removed or clearly marked non-verified (and should not appear in OFFICIAL releases).
 
 ## Repository layout
-- `official/` — versioned official document set (procurement / bids / partners)
-  - `official/_glossary/` — canonical terms used across the repo
-  - `official/compliance/` — applicability matrix + crosswalks + evidence mapping
-- `evidence/` — append-only evidence system
-  - `evidence/waves/` — wave releases (manifest, index, verify output, referenced runs)
-  - `evidence/qualification/` — qualification packs, demos, runbooks
-  - `evidence/validation/` — audits, benchmarks, proofs
-  - `evidence/reports/` — reports generated from evidence bundles
-- `catalog/` — scenarios, domains, packs, trials, gates
-- `collateral/` — deck, executive brief, demo script, pilot offer, ROI model, SOW
-- `schemas/` — normative JSON schemas for produced artifacts
-- `research/` — non-binding experiments; must not be used to justify OFFICIAL claims unless promoted into EVIDENCE/WAVES
+
+- `official/` - versioned official publication set
+  - `official/_glossary/` - canonical terminology
+  - `official/compliance/` - applicability matrix, crosswalks, evidence mapping
+- `evidence/` - append-only evidence system
+  - `evidence/waves/` - released wave bundles
+  - `evidence/qualification/` - qualification packs and runbooks
+  - `evidence/validation/` - audits, benchmarks, proofs
+  - `evidence/reports/` - generated reports over evidence
+- `catalog/` - scenarios/domains/packs/trials/gates
+- `collateral/` - field-facing collateral artifacts
+- `schemas/` - normative JSON schemas for produced artifacts
+- `research/` - non-binding experiments (not evidence authority)
+
+## Governance boundaries
+
+- Normative contract authority: `yai-law`
+- Runtime implementation authority: `yai`
+- Operator implementation authority: `yai-cli` / `yai-sdk`
+- Governance/tooling factory standards: `yai-infra`
+- Operational evidence and publication packaging: `yai-ops`
 
 ## Where to start
-- Read `TRACKING-HARDENING.md` for the execution plan and Definition of Done.
-- For the latest verified release baseline, start from `evidence/waves/LATEST` and the referenced wave `INDEX.md`.
-- For procurement-ready material, start from `official/index.md`.
+
+- `TRACKING-HARDENING.md` - execution plan and definition of done
+- `GOVERNANCE.md` - governance and change policy
+- `evidence/waves/LATEST` - current verified baseline
+- `official/index.md` - procurement/partner publication entry
