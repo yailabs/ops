@@ -1,63 +1,47 @@
-# yai-ops — Enterprise Operational Evidence Repository for YAI
+# YAI Ops
 
-`yai-ops` is the canonical operational repository for enterprise validation, qualification evidence, and official publication collateral for the YAI platform.
+YAI Ops is where YAI becomes operationally provable.
 
-## Platform role
+It brings evidence, qualification, validation, and publication into one governed layer for trusted deployment and external review.
 
-Dependency and authority chain:
+## Platform position
 
-`yai-law` -> `yai-sdk` -> `yai-cli` -> `yai` -> `yai-ops`
+`yai-law` → `yai-sdk` → `yai-cli` → `yai` → `yai-ops`
 
-`yai-ops` is where conformance, assurance, and field-readiness claims are evidenced.
-It does not redefine normative law contracts.
+YAI Ops is where conformance becomes operational fact.
 
-## Repository mission
+## What this repository is
 
-`yai-ops` is the canonical home for:
-- **OFFICIAL**: procurement/funding/partner-ready publication set
-- **EVIDENCE + WAVES**: append-only evidence bundles with manifests, indices, verification outputs
-- **CATALOG**: scenarios/domains/packs/gates/trials scope model
-- **COLLATERAL**: field material aligned to verified evidence baselines
+This repository contains the operational proof surfaces of the platform:
 
-Primary audiences:
-1. Procurement and Legal
-2. Security/Compliance and Auditors
-3. Engineering and Partners
+- evidence baselines and released waves
+- qualification and validation material
+- official publication sets
+- field collateral aligned to verified baselines
+- scenario and deployment catalog surfaces
 
-## Golden rule (traceability is mandatory)
+## Operating rule
 
-Any claim in OFFICIAL or COLLATERAL must be traceable:
+- **every verified claim must resolve to evidence**
 
-`CLAIM -> WAVE (MANIFEST/INDEX) -> RUN -> POLICY/BASELINE -> VERIFY OUTPUT -> EVIDENCE FILES`
+## Repository structure
 
-Claims lacking evidence traceability must be removed or clearly marked non-verified (and should not appear in OFFICIAL releases).
+- `official/`
+- `evidence/`
+- `catalog/`
+- `collateral/`
+- `schemas/`
+- `research/`
 
-## Repository layout
+## Boundaries
 
-- `official/` - versioned official publication set
-  - `official/_glossary/` - canonical terminology
-  - `official/compliance/` - applicability matrix, crosswalks, evidence mapping
-- `evidence/` - append-only evidence system
-  - `evidence/waves/` - released wave bundles
-  - `evidence/qualification/` - qualification packs and runbooks
-  - `evidence/validation/` - audits, benchmarks, proofs
-  - `evidence/reports/` - generated reports over evidence
-- `catalog/` - scenarios/domains/packs/trials/gates
-- `collateral/` - field-facing collateral artifacts
-- `schemas/` - normative JSON schemas for produced artifacts
-- `research/` - non-binding experiments (not evidence authority)
+YAI Ops owns operational proof and publication discipline.
 
-## Governance boundaries
-
-- Normative contract authority: `yai-law`
-- Runtime implementation authority: `yai`
-- Operator implementation authority: `yai-cli` / `yai-sdk`
-- Governance/tooling factory standards: `yai-infra`
-- Operational evidence and publication packaging: `yai-ops`
+It does not own platform law (`yai-law`), systems implementation (`yai`), command surfaces (`yai-cli`), SDK interfaces (`yai-sdk`), or shared governance factory standards (`yai-infra`).
 
 ## Where to start
 
-- `TRACKING-HARDENING.md` - execution plan and definition of done
-- `GOVERNANCE.md` - governance and change policy
-- `evidence/waves/LATEST` - current verified baseline
-- `official/index.md` - procurement/partner publication entry
+- `TRACKING-HARDENING.md`
+- `GOVERNANCE.md`
+- `evidence/waves/LATEST`
+- `official/index.md`
