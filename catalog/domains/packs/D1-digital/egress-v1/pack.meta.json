@@ -11,9 +11,19 @@
     }
   ],
   "primary_runtime_effect_domain": "network",
-  "audit_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
+  "audit_steps": [
+    "trigger",
+    "context",
+    "authority",
+    "decision",
+    "enforcement",
+    "evidence"
+  ],
   "safety": {
     "vector_policy": "safe-only",
     "notes": "Vectors must use reserved TEST-NET ranges and must not include real credentials or destructive payloads."
-  }
+  },
+  "canonical_law_ref": "law/domains/D1-digital",
+  "normative_authority": "law",
+  "fixture_role": "qualification-fixture"
 }

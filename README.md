@@ -1,55 +1,32 @@
-# YAI Ops (`ops` repository)
+# ops
 
-YAI Ops is where YAI becomes operationally provable.
-
-Operational repository for YAI Ops. This repo contains the official document set, verifiable evidence bundles (waves), qualification assets, validation outputs, reports, and field collateral.
-
-## Platform position
-
-`law` -> `sdk` -> `cli` -> `yai` -> `ops`
-
-YAI Ops is where conformance becomes operational fact.
-
-## Purpose
-
-ops is the canonical home for:
-- **OFFICIAL**: procurement/funding/partner-ready document set (versioned)
-- **EVIDENCE + WAVES**: append-only evidence bundles with manifests, indices, and verification outputs
-- **CATALOG**: scope map (scenarios, domains, packs, gates, trials)
-- **COLLATERAL**: field collateral aligned to evidence baselines
+`ops` is the official bureau repository for qualification, evidence curation, catalog, and publication collateral.
 
 ## What this repository is
 
-This repository contains the operational proof surfaces of the platform:
+- official publication surfaces
+- qualification/evidence curation and reporting
+- domain catalog, rollout, scenario, and coverage visibility
+- collateral and delivery-facing operational material
 
-- evidence baselines and released waves
-- qualification and validation material
-- official publication sets
-- field collateral aligned to verified baselines
-- scenario and deployment catalog surfaces
+## What this repository is not
 
-## Operating rule
+- not the canonical normative source (owned by `law`)
+- not runtime implementation ownership (owned by `yai`)
+- not the home of executable domain policy logic
+- not dataplane/db/query implementation scope
 
-- **every verified claim must resolve to evidence**
+## Domain packs policy
 
-## Repository structure
+`catalog/domains/packs/` remains as descriptive/qualification-facing material.
+It must not be interpreted as canonical runtime policy authority.
 
-- `official/`
-- `evidence/`
-- `catalog/`
-- `collateral/`
-- `schemas/`
-- `research/`
+## Cross-repo role
 
-## Boundaries
+- `law`: normative authority
+- `yai`: runtime realization
+- `ops`: official bureau/catalog/qualification/evidence layer
 
-YAI Ops owns operational proof and publication discipline.
+## Transitional policy
 
-It does not own platform law (`law`), systems implementation (`yai`), command surfaces (`cli`), SDK interfaces (`sdk`), or shared governance factory standards (`infra`).
-
-## Where to start
-
-- `TRACKING-HARDENING.md`
-- `GOVERNANCE.md`
-- `evidence/waves/LATEST`
-- `official/index.md`
+Legacy/transitional cleanup material is quarantined under `archive_tmp/`.

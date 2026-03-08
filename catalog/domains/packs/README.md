@@ -11,6 +11,11 @@ revision: 1
 
 Domain Packs are versioned **semantic packages** that allow YAI to operate coherently across different D-Major domains **without changing the runtime**.
 
+Authoritative note:
+- Canonical executable normative logic now lives in `yai-labs/law` under `domains/*`.
+- Packs in `ops` remain the catalog/qualification-facing layer (rollout, vectors, KPI, evidence linkage).
+- Contracts and baselines in this folder are trial fixtures and qualification artifacts, not the canonical law source.
+
 A Domain Pack defines:
 - what a **forbidden effect** means in a given domain (domain semantics),
 - what **authority/contract constraints** apply,

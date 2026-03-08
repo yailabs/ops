@@ -17,6 +17,8 @@ Gate directories:
 Rule:
 - Qualification artifacts define execution and evidence.
 - Audits/proof validation remain under `docs/50-validation/`.
+- Normative source of truth for executable domain rules is `yai-labs/law` (`domains/*` and `compliance/*`).
+- Baselines/contracts used here are qualification fixtures aligned to canonical law, not an independent normative authority.
 
 Execution families:
 - `QT-*` = Scenario qualification gates (can be sim/live depending on gate design).

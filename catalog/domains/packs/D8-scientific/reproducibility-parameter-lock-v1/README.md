@@ -2,6 +2,14 @@
 
 This pack defines the semantic meaning of non-reproducible scientific pipeline execution.
 
+Canonical source of normative execution logic:
+- `law/domains/D8-scientific/*` in `yai-labs/law`
+
+This pack remains:
+- a descriptive catalog surface
+- a qualification/trial fixture bundle
+- an evidence linkage point for RT/QT flows in `ops`
+
 Runtime grammar invariant:
 trigger -> context -> authority/contract -> decision -> enforcement -> evidence
 
@@ -19,4 +27,3 @@ trigger -> context -> authority/contract -> decision -> enforcement -> evidence
 ## RealTarget Trials
 - `docs/30-catalog/domains/trials/D8-scientific/reproducibility-parameter-lock-v1/RT-001-params-lock-v1`
 - Qualification runner: `docs/40-qualification/RT-0.1-001-D8-PARAMS-LOCK/`
-

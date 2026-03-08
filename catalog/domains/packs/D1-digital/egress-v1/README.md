@@ -2,6 +2,14 @@
 
 This pack defines the semantic meaning of forbidden outbound network egress in the Digital domain.
 
+Canonical source of normative execution logic:
+- `law/domains/D1-digital/*` in `yai-labs/law`
+
+This pack remains:
+- a descriptive catalog surface
+- a qualification/trial fixture bundle
+- an evidence linkage point for RT/QT flows in `ops`
+
 The runtime grammar must remain invariant:
 trigger -> context -> authority/contract -> decision -> enforcement -> evidence
 

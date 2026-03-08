@@ -15,9 +15,19 @@
     }
   ],
   "primary_runtime_effect_domain": "control",
-  "audit_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
+  "audit_steps": [
+    "trigger",
+    "context",
+    "authority",
+    "decision",
+    "enforcement",
+    "evidence"
+  ],
   "safety": {
     "vector_policy": "safe-only",
     "notes": "Vectors must not execute destructive workloads. Use simulation or minimal compute tasks."
-  }
+  },
+  "canonical_law_ref": "law/domains/D8-scientific",
+  "normative_authority": "law",
+  "fixture_role": "qualification-fixture"
 }
