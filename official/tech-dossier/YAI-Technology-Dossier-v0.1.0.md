@@ -13,8 +13,8 @@ Evidence Baseline:
 - Index sha256: ae29266cd8f5bbd249bcb0d2cc6c078afc39e17eb7edcd14abce1e323e0638e4
 - Policy hash: faf40d98fd52b94cbbc81ed6d9205dd7efa9875413f4624c51b14f14f8aa3270
 - yai git sha: 578371ad7f6e82df576cb61f4009b09082f3b9fd
-- yai-cli git sha: 72e487ee55de2efaa7de71374427421a923aa5ed
-- yai-law/specs pin sha: 20abef1874e56e4c3493df5a42697779cba00381
+- cli git sha: 72e487ee55de2efaa7de71374427421a923aa5ed
+- law/specs pin sha: 20abef1874e56e4c3493df5a42697779cba00381
 
 Verification Pointer:
 - Wave path: /evidence/waves/SC102-WAVE1-LAUNCH/
@@ -37,7 +37,7 @@ This dossier describes YAI’s runtime architecture, canonical primitives, enfor
 Technical stakeholders evaluating architecture, security/compliance stakeholders assessing operational controls, and engineering teams planning integration.
 
 ## Non-goals
-- This dossier does not provide legal advice (see OFFICIAL legal pack and yai-law by incorporation).
+- This dossier does not provide legal advice (see OFFICIAL legal pack and law by incorporation).
 - This dossier does not claim model-level guarantees (accuracy/safety) beyond runtime enforcement and evidence mechanics.
 - Roadmap items are not “proven” unless promoted into evidence waves.
 
@@ -69,7 +69,7 @@ Canonical definitions are in `/official/_glossary/TERMS-v0.1.0.md`. This dossier
 - **Identity / Authority** — who acts, and with which powers in a given context
 - **Policy** — evaluable rules for allowing/denying effects (pre/post constraints)
 - **Baseline** — pinned configuration/version/params used for reproducibility and audit
-- **Contract** — normative definition of expected behavior and boundaries (incorporated by reference via yai-law)
+- **Contract** — normative definition of expected behavior and boundaries (incorporated by reference via law)
 - **Decision** — proposed action, evaluated under authority and policy
 - **Outcome / ReasonCode** — explicit result for each decision (allow/deny/fail), with reason
 - **Effect** — an external side effect (egress, write, provider call, artifact emission)
@@ -79,7 +79,7 @@ Canonical definitions are in `/official/_glossary/TERMS-v0.1.0.md`. This dossier
 - **Verification** — deterministic verification procedure and outputs
 
 ### Normative source of truth (contracts)
-Normative definitions and contracts are maintained in **yai-law** and incorporated by reference into this repository via pinned commits (see Evidence Baseline pins above). This prevents “documentation drift” between claims and normative definitions.
+Normative definitions and contracts are maintained in **law** and incorporated by reference into this repository via pinned commits (see Evidence Baseline pins above). This prevents “documentation drift” between claims and normative definitions.
 
 ## 4) Enforcement model (fail-closed effects)
 YAI enforces runtime governance by treating effects as controlled operations:
@@ -161,7 +161,7 @@ Waves are immutable bundles with verification, enabling procurement/audit workfl
 Domain packs, scenarios, gates, and trials create a repeatable methodology for proving capabilities across domains (not just demos).
 
 4) **Contracts as pinned baseline**
-Normative contract sources (yai-law) are pinned and incorporated by reference, reducing drift between implementation, documentation, and proof.
+Normative contract sources (law) are pinned and incorporated by reference, reducing drift between implementation, documentation, and proof.
 
 ---
 

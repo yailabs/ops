@@ -9,7 +9,7 @@ Security/compliance, audit reviewers, procurement stakeholders, and engineering 
 ## Rules
 1) Each row must be evidence-backed or explicitly marked as planned.
 2) Evidence pointers must reference immutable wave bundles whenever possible.
-3) “Source” may be a regulation, standard, framework, or internal baseline (yai-law).
+3) “Source” may be a regulation, standard, framework, or internal baseline (law).
 4) This map does not certify compliance; it maps requirements to controls and evidence artifacts.
 
 ## Evidence Baseline (current)
@@ -28,7 +28,7 @@ Primary baseline for v0.1.0:
 | YAI-REQ-ENF-0002 | Internal (YAI runtime posture) | Explicit outcomes with reason codes (allow/deny/fail) as part of evidence | OFFICIAL: assurance/tech dossier; Evidence: runs/logs as captured | `/evidence/waves/SC102-WAVE1-LAUNCH/` (RUNS/ + verify outputs) | partial |
 | YAI-REQ-DEL-0001 | ISO/IEC 42001 (operations) | Repeatable pilot delivery playbook with acceptance criteria and change control | `/official/delivery/YAI-Pilot-Delivery-Spec-v0.1.0.md`, `/collateral/sow/` | pilot instance wave (future) | planned |
 | YAI-REQ-ACT-0001 | EU AI Act (logging/traceability posture) | Maintain audit-grade evidence artifacts for operated workflows (bounded) | `/evidence/waves/`, `/evidence/reports/`, `/official/assurance/` | `/evidence/waves/SC102-WAVE1-LAUNCH/` (bounded to baseline scenario) | partial |
-| YAI-REQ-PRIV-0001 | GDPR (posture) | Declare data categories, purposes, retention, and access boundaries for pilot artifacts | `/official/compliance/PRIVACY-GDPR-ePRIVACY-v0.1.0.md`, yai-law compliance packs | pilot instance (future) | planned |
+| YAI-REQ-PRIV-0001 | GDPR (posture) | Declare data categories, purposes, retention, and access boundaries for pilot artifacts | `/official/compliance/PRIVACY-GDPR-ePRIVACY-v0.1.0.md`, law compliance packs | pilot instance (future) | planned |
 | YAI-REQ-SEC-0001 | ISO 27001/27002 (posture) | Security baseline posture: least privilege, controlled effects, evidence retention access | `/official/compliance/SECURITY-AND-SUPPLY-CHAIN-v0.1.0.md`, `/official/assurance/` | `/evidence/waves/SC102-WAVE1-LAUNCH/` (bounded) | partial |
 | YAI-REQ-SUP-0001 | NIST SSDF + SLSA (posture) | Release hygiene: pinned refs, reproducible verification, provenance expectations | `PUBLISHING-RULES.md`, verify outputs, pins referenced in OFFICIAL | SC102 wave baseline pins + verify outputs | partial |
 

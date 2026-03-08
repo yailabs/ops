@@ -18,8 +18,8 @@ It is intentionally separated from:
 - `evidence/waves/` — wave bundles reference pack baselines and run outcomes
 - `official/` — claims reference evidence, which is traceable back to catalog definitions
 
-## Normative baseline (yai-law)
-Normative definitions (contracts, invariants, compliance baselines) live in **yai-law** and are incorporated by reference.  
+## Normative baseline (law)
+Normative definitions (contracts, invariants, compliance baselines) live in **law** and are incorporated by reference.  
 This catalog contains **operational** definitions for qualification and delivery, aligned to that baseline.
 
 ## Navigation

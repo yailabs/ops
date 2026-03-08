@@ -5,11 +5,11 @@ Canonical/public proof packs live under `docs/50-validation/proof/<PACK-ID>/`.
 Rules:
 - Draft/private packs can live in `docs/50-validation/proof/.private/` and are not tracked.
 - Public packs (when promoted) must live directly under `docs/50-validation/proof/`.
-- Other repos (`yai-cli`, `yai-mind`) keep pointer files only.
+- Other repos (`cli`, `yai-mind`) keep pointer files only.
 - Mind pointer file in this repo: `docs/50-validation/proof/mind-proof-pointer.md`.
 - Every public proof pack must pin explicit versions/tags/commits for:
-  - `yai-law`
-  - `yai-cli`
+  - `law`
+  - `cli`
   - `yai-mind`
 - Every public proof pack must split:
   - existing evidence

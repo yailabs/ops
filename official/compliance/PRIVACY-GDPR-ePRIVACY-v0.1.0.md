@@ -14,7 +14,7 @@ Customer legal/privacy stakeholders, security/compliance reviewers, delivery own
 ## Relationship to other baselines
 - Applicability triggers are declared in: `/official/compliance/APPLICABILITY-MATRIX-v0.1.0.md`
 - Evidence mapping is maintained in: `/official/compliance/CONFORMITY-EVIDENCE-MAP-v0.1.0.md`
-- Internal compliance packs and schemas are incorporated by reference via yai-law (see: `/official/compliance/REFERENCES-v0.1.0.md`)
+- Internal compliance packs and schemas are incorporated by reference via law (see: `/official/compliance/REFERENCES-v0.1.0.md`)
 
 ## Privacy posture (pilot-level)
 YAI pilots are designed to:
@@ -62,7 +62,7 @@ Retention is customer-specific and must be declared in the pilot SOW. Default po
 - sensitive content should be excluded or redacted where possible
 
 Internal baseline support:
-- retention schemas and defaults may be taken from yai-law compliance packs (incorporated by reference).
+- retention schemas and defaults may be taken from law compliance packs (incorporated by reference).
 
 ## DPIA triggers (guidance)
 A DPIA (or equivalent assessment) may be required depending on customer context, such as:

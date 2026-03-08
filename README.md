@@ -1,9 +1,9 @@
-# yai-ops
+# YAI Ops (ops repository)
 
-Operational repository for YAI. This repo contains the official document set, verifiable evidence bundles (waves), qualification assets, validation outputs, reports, and field collateral.
+Operational repository for YAI Ops. This repo contains the official document set, verifiable evidence bundles (waves), qualification assets, validation outputs, reports, and field collateral.
 
 ## Purpose
-yai-ops is the canonical home for:
+ops is the canonical home for:
 - **OFFICIAL**: procurement / funding / partner-ready document set (versioned)
 - **EVIDENCE + WAVES**: append-only evidence bundles with manifests, indices, and verification outputs
 - **CATALOG**: scope map (scenarios, domains, packs, gates, trials)

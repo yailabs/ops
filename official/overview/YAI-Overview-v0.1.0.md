@@ -13,8 +13,8 @@ Evidence Baseline:
 - Index sha256: ae29266cd8f5bbd249bcb0d2cc6c078afc39e17eb7edcd14abce1e323e0638e4
 - Policy hash: faf40d98fd52b94cbbc81ed6d9205dd7efa9875413f4624c51b14f14f8aa3270
 - yai git sha: 578371ad7f6e82df576cb61f4009b09082f3b9fd
-- yai-cli git sha: 72e487ee55de2efaa7de71374427421a923aa5ed
-- yai-law/specs pin sha: 20abef1874e56e4c3493df5a42697779cba00381
+- cli git sha: 72e487ee55de2efaa7de71374427421a923aa5ed
+- law/specs pin sha: 20abef1874e56e4c3493df5a42697779cba00381
 
 Verification Pointer:
 - Wave path: /evidence/waves/SC102-WAVE1-LAUNCH/
@@ -37,7 +37,7 @@ This document defines what YAI is, the problem space it addresses, what is prove
 Procurement, security/compliance, audit reviewers, and technical stakeholders needing a high-level system definition anchored to verifiable evidence.
 
 ## Non-goals
-- This document does not provide legal advice. Legal posture is handled via the OFFICIAL legal pack and yai-law (incorporation by reference).
+- This document does not provide legal advice. Legal posture is handled via the OFFICIAL legal pack and law (incorporation by reference).
 - This document does not claim general model safety guarantees. It describes runtime controls and evidence mechanics.
 - Roadmap items are not “proven” unless explicitly linked to evidence waves.
 

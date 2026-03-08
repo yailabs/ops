@@ -8,7 +8,7 @@ Procurement, legal/compliance, audit reviewers, and engineering stakeholders nee
 
 ## Policy (how to read and update references)
 - External sources listed here are authoritative references only. This repository does not provide legal advice.
-- Internal baselines (yai-law) are the canonical operational interpretation and are incorporated by reference.
+- Internal baselines (law) are the canonical operational interpretation and are incorporated by reference.
 - Updates to references are versioned changes:
   - update `REFERENCES-vX.Y.Z.md` (new version)
   - update crosswalk/mapping docs accordingly
@@ -38,8 +38,8 @@ The following sources are referenced by the compliance spine and may be activate
 - NIST SSDF (SP 800-218) — secure software development framework
 - SLSA — supply-chain integrity and provenance expectations
 
-## Internal normative baseline (yai-law) — incorporation by reference
-This repository incorporates **yai-law** by reference as the canonical internal baseline for:
+## Internal normative baseline (law) — incorporation by reference
+This repository incorporates **law** by reference as the canonical internal baseline for:
 - terminology and definitions
 - contracts and invariants (runtime governance posture)
 - compliance packs and schemas (e.g., GDPR packs, retention policy structures)
@@ -50,20 +50,20 @@ This repository incorporates **yai-law** by reference as the canonical internal 
 - Enables pinned, reviewable baselines via commit SHA references in OFFICIAL Evidence Baseline blocks.
 
 ### Pointers (required)
-Fill these pointers with the canonical locations in the yai-law repository used by this release:
+Fill these pointers with the canonical locations in the law repository used by this release:
 
-- yai-law repository: `deps/yai-law/` (or external repo `yai-labs/yai-law`, as applicable)
+- law repository: `deps/law/` (or external repo `yai-labs/law`, as applicable)
 - Terminology / glossary:
-  - `deps/yai-law/contracts/terminology/glossary.md`
+  - `deps/law/contracts/terminology/glossary.md`
 - Contracts and invariants:
-  - `deps/yai-law/contracts/` (axioms, boundaries, invariants)
+  - `deps/law/contracts/` (axioms, boundaries, invariants)
 - Compliance packs and schemas:
-  - `deps/yai-law/compliance/` (packs, schema)
+  - `deps/law/compliance/` (packs, schema)
 - Formal bindings (if used):
-  - `deps/yai-law/formal/` (bindings, traceability schema)
+  - `deps/law/formal/` (bindings, traceability schema)
 
 ### Pinning rule (binding)
-Any OFFICIAL document that relies on yai-law MUST include the yai-law pin SHA in its Evidence Baseline block. That pin is the authoritative internal baseline for interpretation.
+Any OFFICIAL document that relies on law MUST include the law pin SHA in its Evidence Baseline block. That pin is the authoritative internal baseline for interpretation.
 
 ## Related documents
 - Applicability matrix: `/official/compliance/APPLICABILITY-MATRIX-v0.1.0.md`

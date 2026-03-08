@@ -13,8 +13,8 @@ Evidence Baseline:
 - Index sha256: <sha256 of INDEX.md (if applicable)>
 - Policy hash: <sha256 or hash of policy baseline used (if applicable)>
 - yai git sha: <commit sha>
-- yai-cli git sha: <commit sha>
-- yai-law/specs pin sha: <commit/pin sha>
+- cli git sha: <commit sha>
+- law/specs pin sha: <commit/pin sha>
 
 Verification Pointer:
 - Wave path: /evidence/waves/<Wave alias>/
@@ -55,8 +55,8 @@ Evidence Baseline:
 - Index sha256: <sha256 of INDEX.md (if applicable)>
 - Policy hash: <sha256 or hash of policy baseline used (if applicable)>
 - yai git sha: <commit sha>
-- yai-cli git sha: <commit sha>
-- yai-law/specs pin sha: <commit/pin sha>
+- cli git sha: <commit sha>
+- law/specs pin sha: <commit/pin sha>
 
 Verification Pointer:
 - Wave path: /evidence/waves/<Wave alias>/

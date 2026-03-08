@@ -105,13 +105,13 @@ def load_wave_config(path: Path) -> dict:
 def build_release_identity(repo_root: Path) -> dict:
     yai_sha = git_value(repo_root, ["rev-parse", "HEAD"])
     yai_short = yai_sha[:7] if yai_sha != "unknown" else "unknown"
-    yai_cli_repo = (repo_root / ".." / "yai-cli").resolve()
+    yai_cli_repo = (repo_root / ".." / "cli").resolve()
     yai_cli_sha = (
         git_value(yai_cli_repo, ["rev-parse", "HEAD"])
         if yai_cli_repo.exists() and (yai_cli_repo / ".git").exists()
         else "unknown"
     )
-    yai_law_repo = repo_root / "deps" / "yai-law"
+    yai_law_repo = repo_root / "deps" / "law"
     specs_pin_sha = git_value(yai_law_repo, ["rev-parse", "HEAD"]) if yai_law_repo.exists() else "unknown"
     tag = git_value(repo_root, ["describe", "--tags", "--exact-match"], default="")
     version_label = tag if tag else f"dev-{yai_short}"

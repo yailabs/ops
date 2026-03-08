@@ -74,7 +74,7 @@ print(json.dumps(m['product_release'], indent=2))
 PY
 ```
 
-Expected: yai/yai-cli/spec pin identity present.
+Expected: yai/cli/spec pin identity present.
 
 ## 6. Colossus positioning statement
 

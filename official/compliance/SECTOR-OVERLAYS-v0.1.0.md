@@ -75,7 +75,7 @@ Activate this overlay when the pilot or deployment includes:
 - evidence wave with clear artifact inventory (what data is included):
   - `/evidence/waves/<customer-pilot-wave>/INDEX.md`
 - retention and access rules (pilot instance):
-  - SOW clauses + yai-law retention policy schema (incorporated by reference, if used)
+  - SOW clauses + law retention policy schema (incorporated by reference, if used)
 
 ## Pilot instance overlay declaration (template)
 For each pilot instance, record:

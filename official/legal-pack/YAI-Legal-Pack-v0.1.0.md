@@ -13,8 +13,8 @@ Evidence Baseline:
 - Index sha256: ae29266cd8f5bbd249bcb0d2cc6c078afc39e17eb7edcd14abce1e323e0638e4
 - Policy hash: faf40d98fd52b94cbbc81ed6d9205dd7efa9875413f4624c51b14f14f8aa3270
 - yai git sha: 578371ad7f6e82df576cb61f4009b09082f3b9fd
-- yai-cli git sha: 72e487ee55de2efaa7de71374427421a923aa5ed
-- yai-law/specs pin sha: 20abef1874e56e4c3493df5a42697779cba00381
+- cli git sha: 72e487ee55de2efaa7de71374427421a923aa5ed
+- law/specs pin sha: 20abef1874e56e4c3493df5a42697779cba00381
 
 Verification Pointer:
 - Wave path: /evidence/waves/SC102-WAVE1-LAUNCH/
@@ -48,9 +48,9 @@ Procurement, legal counsel, security/compliance stakeholders, and customer deliv
 - Pilot delivery specification (technical): `/official/delivery/YAI-Pilot-Delivery-Spec-v0.1.0.md`
 
 ## Contract baseline (incorporation by reference)
-YAI maintains normative contracts, definitions, and posture documents in **yai-law**. For pilot engagements:
-- yai-law is incorporated by reference as the canonical contract baseline.
-- pilot instances should pin the yai-law revision (commit sha) used during delivery.
+YAI maintains normative contracts, definitions, and posture documents in **law**. For pilot engagements:
+- law is incorporated by reference as the canonical contract baseline.
+- pilot instances should pin the law revision (commit sha) used during delivery.
 - any deviations from the baseline must be explicit and written into the pilot SOW / change note.
 
 This protects both parties by preventing drift between “what is described,” “what is executed,” and “what is proven.”
@@ -114,7 +114,7 @@ Pilot data handling must be explicitly agreed:
 
 Reference posture and templates:
 - `/official/compliance/PRIVACY-GDPR-ePRIVACY-v0.1.0.md`
-- yai-law compliance packs (incorporated by reference)
+- law compliance packs (incorporated by reference)
 
 ### Retention and access
 - evidence artifacts (waves) are immutable release bundles.

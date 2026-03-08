@@ -4,7 +4,7 @@
 
 ## Release Identity
 - yai sha
-- yai-cli sha
+- cli sha
 - specs pin
 
 ## Wave Coverage

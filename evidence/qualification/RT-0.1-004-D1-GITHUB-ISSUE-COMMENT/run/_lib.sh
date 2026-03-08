@@ -43,10 +43,10 @@ YAI_BOOT_BIN="$REPO_ROOT/build/bin/yai-boot"
 YAI_ROOT_BIN="$REPO_ROOT/build/bin/yai-root-server"
 YAI_ENGINE_BIN="$REPO_ROOT/build/bin/yai-engine"
 
-YAI_CLI_REPO="$REPO_ROOT/../yai-cli"
+YAI_CLI_REPO="$REPO_ROOT/../cli"
 YAI_BIN_DEFAULT="$(command -v yai || true)"
 YAI_BIN_ALT="$YAI_CLI_REPO/dist/bin/yai"
-YAI_BIN_ALT_LEGACY="$YAI_CLI_REPO/dist/bin/yai-cli"
+YAI_BIN_ALT_LEGACY="$YAI_CLI_REPO/dist/bin/cli"
 
 if [[ -n "${YAI_BIN:-}" ]]; then
   :

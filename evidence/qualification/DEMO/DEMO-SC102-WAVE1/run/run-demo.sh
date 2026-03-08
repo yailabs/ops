@@ -5,8 +5,8 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$DIR/_lib.sh"
 
 YAI_SHA="$(git -C "$REPO_ROOT" rev-parse HEAD 2>/dev/null || echo unknown)"
-YAI_CLI_SHA="$(git -C "$REPO_ROOT/../yai-cli" rev-parse HEAD 2>/dev/null || echo unknown)"
-SPECS_SHA="$(git -C "$REPO_ROOT/deps/yai-law" rev-parse HEAD 2>/dev/null || echo unknown)"
+YAI_CLI_SHA="$(git -C "$REPO_ROOT/../cli" rev-parse HEAD 2>/dev/null || echo unknown)"
+SPECS_SHA="$(git -C "$REPO_ROOT/deps/law" rev-parse HEAD 2>/dev/null || echo unknown)"
 VERSION_LABEL="dev-${YAI_SHA:0:7}"
 
 cmd_capture "$CLI_DIR/01-yai-version.txt" yai --version

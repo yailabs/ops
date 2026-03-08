@@ -1,10 +1,10 @@
 # Governance
 
 ## Scope
-This document defines governance rules for yai-ops content production, review, and publication.
+This document defines governance rules for ops content production, review, and publication.
 
 ## Repository layers (non-negotiable boundaries)
-yai-ops is organized into three layers with different immutability and publication rules:
+ops is organized into three layers with different immutability and publication rules:
 
 1) `official/` — OFFICIAL documents (release-only, versioned)
 - Audience: procurement, legal, security/compliance, partners, auditors.
