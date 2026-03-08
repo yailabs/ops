@@ -1,7 +1,7 @@
 # D2-physical/actuator-command-v1 — Domain Pack (Actuator Command Authorization)
 
 ## Scope
-This domain pack defines the **semantic meaning of forbidden actuator commands** in the **Physical (D2)** domain and the evidence/KPI requirements to qualify containment under SC-102.
+This domain pack defines the **semantic meaning of forbidden actuator commands** in the **physical control family (`D2`)** domain and the evidence/KPI requirements to qualify containment under SC-102.
 
 Runtime grammar invariant:
 **trigger → context → authority/contract → decision → enforcement → evidence**
@@ -92,3 +92,23 @@ Rule:
   - multi-step arming workflows
   - richer safety interlocks
   - time-window validation and calibration state checks
+
+## Canonical normative source and fixture status
+
+- Canonical normative source: `law/control-families/physical` (specializations pending)
+- This pack is a qualification fixture bundle for `ops` catalog/trials/evidence.
+- It is not the normative source of truth for runtime decisions.
+
+## Hierarchy alignment
+
+- Root family: `physical` (internal_id: `D2`)
+- Canonical domain seed: `physical.actuator-command`
+- Subdomain seed: `physical.actuator-command.default`
+- This pack is a scenario/qualification class fixture in `ops`; canonical ontology lives in `law`.
+
+## Compliance linkage
+
+- Compliance layers are canonical in `law/overlays/regulatory/*` + `law/overlays/sector/*` and compose with domain policy at runtime.
+- This pack references compliance context for qualification only; it does not define compliance canonically.
+- Referenced compliance: `retention-governance`.
+

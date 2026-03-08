@@ -23,7 +23,35 @@
     "vector_policy": "safe-only",
     "notes": "Vectors must use reserved TEST-NET ranges and must not include real credentials or destructive payloads."
   },
-  "canonical_law_ref": "law/domains/D1-digital",
+  "canonical_law_ref": "law/control-families/digital",
   "normative_authority": "law",
-  "fixture_role": "qualification-fixture"
+  "fixture_role": "qualification-fixture",
+  "root_family_id": "D1",
+  "root_family_canonical_name": "digital",
+  "canonical_domain": "digital.egress",
+  "subdomain_seed": "digital.egress.default",
+  "ontology_level": "scenario-class-fixture",
+  "normative_layer": "ops-bureau-fixture",
+  "compliance_refs": [
+    "gdpr-eu",
+    "security-supply-chain",
+    "retention-governance"
+  ],
+  "compliance_source": "law/overlays/regulatory/* + law/overlays/sector/*",
+  "compliance_role_in_pack": "reference-only",
+  "runtime_normative_source": "law/domain-specializations/network-egress",
+  "specialization": "network-egress",
+  "scenario_class": "digital.network-egress.default",
+  "overlay_refs": {
+    "regulatory": [
+      "gdpr-eu",
+      "security-supply-chain",
+      "retention-governance"
+    ],
+    "sector": [
+      "sector.finance"
+    ]
+  },
+  "runtime_consumer_surface": "yai/embedded/law",
+  "legacy_bridge_surface": "yai/deps/law (fallback-only)"
 }

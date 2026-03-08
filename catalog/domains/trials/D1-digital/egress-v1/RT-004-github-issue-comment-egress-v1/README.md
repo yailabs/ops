@@ -24,7 +24,7 @@ Prove that D1 governance can block/allow a real business effect on GitHub issue 
 
 ## Catalog -> Qualification mapping
 - Catalog trial spec (this folder)
-- Qualification runner: `docs/40-qualification/RT-0.1-004-D1-GITHUB-ISSUE-COMMENT/`
+- Qualification runner: `evidence/qualification/RT-0.1-004-D1-GITHUB-ISSUE-COMMENT/`
 
 ## Produced evidence
 - `baseline.json`

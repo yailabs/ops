@@ -16,3 +16,23 @@ trigger -> context -> authority/contract -> decision -> enforcement -> evidence
 ## Intended use
 - SC-102 (core-only) qualification: prove fail-closed procedural enforcement + evidence completeness.
 - Safe by design: vectors are simulated procedure-step requests.
+
+## Canonical normative source and fixture status
+
+- Canonical normative source: `law/control-families/social-institutional` (specializations pending)
+- This pack is a qualification fixture bundle for `ops` catalog/trials/evidence.
+- It is not the normative source of truth for runtime decisions.
+
+## Hierarchy alignment
+
+- Root family: `social-institutional` (internal_id: `D4`)
+- Canonical domain seed: `social-institutional.procedural-authorization`
+- Subdomain seed: `social-institutional.procedural-authorization.default`
+- This pack is a scenario/qualification class fixture in `ops`; canonical ontology lives in `law`.
+
+## Compliance linkage
+
+- Compliance layers are canonical in `law/overlays/regulatory/*` + `law/overlays/sector/*` and compose with domain policy at runtime.
+- This pack references compliance context for qualification only; it does not define compliance canonically.
+- Referenced compliance: `retention-governance`.
+

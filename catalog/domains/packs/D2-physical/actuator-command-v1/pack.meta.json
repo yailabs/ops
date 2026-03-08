@@ -1,17 +1,23 @@
 {
   "id": "D2-physical/actuator-command-v1",
   "d_major": "D2-physical",
-  "title": "Physical — Actuator Command Authorization & Safety Window",
+  "title": "Physical \u2014 Actuator Command Authorization & Safety Window",
   "version": 1,
   "revision": 1,
   "status": "planned",
   "description": "Domain pack defining forbidden actuator commands in the physical domain (authority, arming, safety window, and target allowlists) for SC-102 qualification using simulation-only vectors.",
-
   "primary_runtime_effect_domain": "providers",
-  "secondary_runtime_effect_domains": ["control"],
-
-  "runtime_grammar_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
-
+  "secondary_runtime_effect_domains": [
+    "control"
+  ],
+  "runtime_grammar_steps": [
+    "trigger",
+    "context",
+    "authority",
+    "decision",
+    "enforcement",
+    "evidence"
+  ],
   "forbidden_effects": [
     {
       "effect": "provider.actuator.command",
@@ -22,7 +28,6 @@
       "description": "Actuator command issued outside a permitted safety window or violating an interlock constraint."
     }
   ],
-
   "expected_outcomes": {
     "deny_baseline": {
       "default_outcome": "deny",
@@ -37,15 +42,33 @@
       "default_severity": "info"
     }
   },
-
   "safety": {
     "vector_policy": "simulation-only",
     "notes": "Vectors MUST target a simulated actuator provider/adapter. No real hardware actuation is permitted for v0.1 qualification."
   },
-
   "links": {
-    "scenario_specs": ["catalog/scenarios/SC-102.md"],
+    "scenario_specs": [
+      "catalog/scenarios/SC-102.md"
+    ],
     "trials_root": "catalog/domains/trials/D2-physical/actuator-command-v1/",
     "evidence_root": "evidence/qualification/"
-  }
+  },
+  "canonical_law_ref": "law/control-families/physical",
+  "normative_authority": "law",
+  "fixture_role": "qualification-fixture",
+  "ops_role": "catalog-qualification-evidence",
+  "runtime_normative_source": "law/control-families/physical",
+  "root_family_id": "D2",
+  "root_family_canonical_name": "physical",
+  "canonical_domain": "physical.actuator-command",
+  "subdomain_seed": "physical.actuator-command.default",
+  "ontology_level": "scenario-class-fixture",
+  "normative_layer": "ops-bureau-fixture",
+  "compliance_refs": [
+    "retention-governance"
+  ],
+  "compliance_source": "law/overlays/regulatory/* + law/overlays/sector/*",
+  "compliance_role_in_pack": "reference-only",
+  "runtime_consumer_surface": "yai/embedded/law",
+  "legacy_bridge_surface": "yai/deps/law (fallback-only)"
 }

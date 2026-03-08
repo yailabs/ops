@@ -52,15 +52,15 @@ This repository incorporates **law** by reference as the canonical internal base
 ### Pointers (required)
 Fill these pointers with the canonical locations in the law repository used by this release:
 
-- law repository: `deps/law/` (or external repo `yai-labs/law`, as applicable)
+- law repository: `yai-labs/law` (canonical external repository)
 - Terminology / glossary:
-  - `deps/law/contracts/terminology/glossary.md`
+  - `law/foundation/terminology/*`
 - Contracts and invariants:
-  - `deps/law/contracts/` (axioms, boundaries, invariants)
+  - `law/foundation/*` and `law/authority/*`
 - Compliance packs and schemas:
-  - `deps/law/compliance/` (packs, schema)
+  - `law/overlays/regulatory/*` and `law/overlays/sector/*`
 - Formal bindings (if used):
-  - `deps/law/formal/` (bindings, traceability schema)
+  - `law/formal/` (bindings, traceability schema)
 
 ### Pinning rule (binding)
 Any OFFICIAL document that relies on law MUST include the law pin SHA in its Evidence Baseline block. That pin is the authoritative internal baseline for interpretation.

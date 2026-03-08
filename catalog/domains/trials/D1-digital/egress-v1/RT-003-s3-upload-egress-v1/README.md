@@ -18,4 +18,4 @@ Prove egress governance blocks an S3-style upload path to a reachable local endp
 - Endpoint: `http://127.0.0.1:8443/bucket/object`
 
 ## Qualification runner
-- `docs/40-qualification/RT-0.1-003-D1-EGRESS-S3/`
+- `evidence/qualification/RT-0.1-003-D1-EGRESS-S3/`

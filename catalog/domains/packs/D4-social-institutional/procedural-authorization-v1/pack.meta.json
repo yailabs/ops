@@ -15,9 +15,34 @@
     }
   ],
   "primary_runtime_effect_domain": "control",
-  "audit_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
+  "audit_steps": [
+    "trigger",
+    "context",
+    "authority",
+    "decision",
+    "enforcement",
+    "evidence"
+  ],
   "safety": {
     "vector_policy": "safe-only",
     "notes": "Vectors must simulate procedure-step requests and must not affect real systems."
-  }
+  },
+  "canonical_law_ref": "law/control-families/social-institutional",
+  "normative_authority": "law",
+  "fixture_role": "qualification-fixture",
+  "ops_role": "catalog-qualification-evidence",
+  "runtime_normative_source": "law/control-families/social-institutional",
+  "root_family_id": "D4",
+  "root_family_canonical_name": "social-institutional",
+  "canonical_domain": "social-institutional.procedural-authorization",
+  "subdomain_seed": "social-institutional.procedural-authorization.default",
+  "ontology_level": "scenario-class-fixture",
+  "normative_layer": "ops-bureau-fixture",
+  "compliance_refs": [
+    "retention-governance"
+  ],
+  "compliance_source": "law/overlays/regulatory/* + law/overlays/sector/*",
+  "compliance_role_in_pack": "reference-only",
+  "runtime_consumer_surface": "yai/embedded/law",
+  "legacy_bridge_surface": "yai/deps/law (fallback-only)"
 }

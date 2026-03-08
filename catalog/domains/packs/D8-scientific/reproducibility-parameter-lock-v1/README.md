@@ -3,7 +3,9 @@
 This pack defines the semantic meaning of non-reproducible scientific pipeline execution.
 
 Canonical source of normative execution logic:
-- `law/domains/D8-scientific/*` in `yai-labs/law`
+- `law/control-families/scientific/*`
+- `law/domain-specializations/parameter-governance/*`
+- `law/domain-specializations/reproducibility-control/*`
 
 This pack remains:
 - a descriptive catalog surface
@@ -25,5 +27,26 @@ trigger -> context -> authority/contract -> decision -> enforcement -> evidence
 - SC-102 (core-only) qualification: prove fail-closed on missing reproducibility lock + evidence completeness.
 - Safe by design: vectors are simulated pipeline runs (no external side effects required).
 ## RealTarget Trials
-- `docs/30-catalog/domains/trials/D8-scientific/reproducibility-parameter-lock-v1/RT-001-params-lock-v1`
-- Qualification runner: `docs/40-qualification/RT-0.1-001-D8-PARAMS-LOCK/`
+- `catalog/domains/trials/D8-scientific/reproducibility-parameter-lock-v1/RT-001-params-lock-v1`
+- Qualification runner: `evidence/qualification/RT-0.1-001-D8-PARAMS-LOCK/`
+
+## Canonical normative source and fixture status
+
+- Canonical normative source: `law/control-families/scientific` + `law/domain-specializations/reproducibility-control`
+- This pack is a qualification fixture bundle for `ops` catalog/trials/evidence.
+- It is not the normative source of truth for runtime decisions.
+
+## Hierarchy alignment
+
+- Root family: `scientific` (internal_id: `D8`)
+- Canonical domain seed: `scientific.reproducibility-parameter-lock`
+- Subdomain seed: `scientific.reproducibility-parameter-lock.default`
+- This pack is a scenario/qualification class fixture in `ops`; canonical ontology lives in `law`.
+
+## Compliance linkage
+
+- Compliance layers are canonical in `law/overlays/regulatory/*` + `law/overlays/sector/*` and compose with domain policy at runtime.
+- This pack references compliance context for qualification only; it does not define compliance canonically.
+- Referenced compliance: `ai-act`, `gdpr-eu`, `retention-governance`, `security-supply-chain`.
+- Overlay relevance: `ai-act` (high-risk/oversight), `security-supply-chain`, `retention-governance`, and sector overlays (`healthcare`, `finance`) when applicable.
+

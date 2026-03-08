@@ -15,9 +15,34 @@
     }
   ],
   "primary_runtime_effect_domain": "control",
-  "audit_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
+  "audit_steps": [
+    "trigger",
+    "context",
+    "authority",
+    "decision",
+    "enforcement",
+    "evidence"
+  ],
   "safety": {
     "vector_policy": "simulation-only",
     "notes": "Vectors must target a simulated ops provider. No real firewall/EDR/production actions in v0.1 qualification."
-  }
+  },
+  "canonical_law_ref": "law/control-families/operational",
+  "normative_authority": "law",
+  "fixture_role": "qualification-fixture",
+  "ops_role": "catalog-qualification-evidence",
+  "runtime_normative_source": "law/control-families/operational",
+  "root_family_id": "D6",
+  "root_family_canonical_name": "operational",
+  "canonical_domain": "operational.incident-response-action",
+  "subdomain_seed": "operational.incident-response-action.default",
+  "ontology_level": "scenario-class-fixture",
+  "normative_layer": "ops-bureau-fixture",
+  "compliance_refs": [
+    "retention-governance"
+  ],
+  "compliance_source": "law/overlays/regulatory/* + law/overlays/sector/*",
+  "compliance_role_in_pack": "reference-only",
+  "runtime_consumer_surface": "yai/embedded/law",
+  "legacy_bridge_surface": "yai/deps/law (fallback-only)"
 }

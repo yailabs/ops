@@ -7,9 +7,9 @@ revision: 1
 issue:
   - https://github.com/yai-labs/yai/issues/186
 related:
-  - docs/30-catalog/scenarios/SC-102.md
-  - docs/40-qualification/QT-0.1-001-SC102/README.md
-  - docs/30-catalog/domains/D-MAJOR.md
+  - catalog/scenarios/SC-102.md
+  - evidence/qualification/QT-0.1-001-SC102/README.md
+  - catalog/domains/D-MAJOR.md
 ---
 
 # SC-102 Domain Rollout Waves (D2..D9)
@@ -44,7 +44,7 @@ For each pack, all must pass:
 - forbidden effect blocked (fail-closed)
 - decision record complete (`outcome`, `reason_code`, `baseline_hash`)
 - evidence completeness 100%
-- findings file published under `docs/50-validation/audits/findings/`
+- findings file published under `evidence/validation/audits/findings/`
 
 ## Risk controls
 - No concurrent multi-pack execution in the same wave.

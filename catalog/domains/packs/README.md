@@ -12,7 +12,7 @@ revision: 1
 Domain Packs are versioned **semantic packages** that allow YAI to operate coherently across different D-Major domains **without changing the runtime**.
 
 Authoritative note:
-- Canonical executable normative logic now lives in `yai-labs/law` under `domains/*`.
+- Canonical executable normative logic now lives in `yai-labs/law` under `control-families/*`, `domain-specializations/*`, and `overlays/*`.
 - Packs in `ops` remain the catalog/qualification-facing layer (rollout, vectors, KPI, evidence linkage).
 - Contracts and baselines in this folder are trial fixtures and qualification artifacts, not the canonical law source.
 
@@ -222,3 +222,6 @@ The pack defines semantics; the runtime preserves the grammar.
 ## SC102 rollout planning
 
 * `catalog/domains/packs/SC102-DOMAIN-ROLLOUT-WAVES-v0.1.0.md`
+
+Overlay-driven qualification note:
+- packs reference canonical overlays in `law/overlays/regulatory/*` and `law/overlays/sector/*`; they do not define overlays locally.

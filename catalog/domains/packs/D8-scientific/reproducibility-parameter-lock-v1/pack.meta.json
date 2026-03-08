@@ -27,7 +27,39 @@
     "vector_policy": "safe-only",
     "notes": "Vectors must not execute destructive workloads. Use simulation or minimal compute tasks."
   },
-  "canonical_law_ref": "law/domains/D8-scientific",
+  "canonical_law_ref": "law/control-families/scientific",
   "normative_authority": "law",
-  "fixture_role": "qualification-fixture"
+  "fixture_role": "qualification-fixture",
+  "ops_role": "catalog-qualification-evidence",
+  "runtime_normative_source": "law/domain-specializations/reproducibility-control",
+  "root_family_id": "D8",
+  "root_family_canonical_name": "scientific",
+  "canonical_domain": "scientific.reproducibility-parameter-lock",
+  "subdomain_seed": "scientific.reproducibility-parameter-lock.default",
+  "ontology_level": "scenario-class-fixture",
+  "normative_layer": "ops-bureau-fixture",
+  "compliance_refs": [
+    "ai-act",
+    "gdpr-eu",
+    "retention-governance",
+    "security-supply-chain"
+  ],
+  "compliance_source": "law/overlays/regulatory/* + law/overlays/sector/*",
+  "compliance_role_in_pack": "reference-only",
+  "specialization": "reproducibility-control",
+  "scenario_class": "scientific.reproducibility-control.default",
+  "overlay_refs": {
+    "regulatory": [
+      "ai-act",
+      "gdpr-eu",
+      "retention-governance",
+      "security-supply-chain"
+    ],
+    "sector": [
+      "sector.healthcare",
+      "sector.finance"
+    ]
+  },
+  "runtime_consumer_surface": "yai/embedded/law",
+  "legacy_bridge_surface": "yai/deps/law (fallback-only)"
 }

@@ -15,9 +15,34 @@
     }
   ],
   "primary_runtime_effect_domain": "storage",
-  "audit_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
+  "audit_steps": [
+    "trigger",
+    "context",
+    "authority",
+    "decision",
+    "enforcement",
+    "evidence"
+  ],
   "safety": {
     "vector_policy": "synthetic-only",
     "notes": "Vectors must contain synthetic sample IDs and no personal/clinical data."
-  }
+  },
+  "canonical_law_ref": "law/control-families/biological",
+  "normative_authority": "law",
+  "fixture_role": "qualification-fixture",
+  "ops_role": "catalog-qualification-evidence",
+  "runtime_normative_source": "law/control-families/biological",
+  "root_family_id": "D3",
+  "root_family_canonical_name": "biological",
+  "canonical_domain": "biological.chain-of-custody",
+  "subdomain_seed": "biological.chain-of-custody.default",
+  "ontology_level": "scenario-class-fixture",
+  "normative_layer": "ops-bureau-fixture",
+  "compliance_refs": [
+    "retention-governance"
+  ],
+  "compliance_source": "law/overlays/regulatory/* + law/overlays/sector/*",
+  "compliance_role_in_pack": "reference-only",
+  "runtime_consumer_surface": "yai/embedded/law",
+  "legacy_bridge_surface": "yai/deps/law (fallback-only)"
 }

@@ -14,7 +14,7 @@ The catalog is the operational map of what YAI proves, how it is tested, and how
 Domain packs in `ops` are descriptive/qualification surfaces.
 They are not canonical normative execution logic.
 
-Canonical domain logic lives in `law/domains/*`.
+Canonical runtime domain logic lives in `law/control-families/*`, `law/domain-specializations/*`, and overlay layers under `law/overlays/*`.
 
 ## How this maps to other repos
 

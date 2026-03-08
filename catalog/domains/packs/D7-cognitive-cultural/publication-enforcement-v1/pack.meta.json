@@ -19,9 +19,34 @@
     }
   ],
   "primary_runtime_effect_domain": "providers",
-  "audit_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
+  "audit_steps": [
+    "trigger",
+    "context",
+    "authority",
+    "decision",
+    "enforcement",
+    "evidence"
+  ],
   "safety": {
     "vector_policy": "simulation-only",
     "notes": "Vectors must use a simulated publishing provider. No real public endpoints."
-  }
+  },
+  "canonical_law_ref": "law/control-families/cognitive-cultural",
+  "normative_authority": "law",
+  "fixture_role": "qualification-fixture",
+  "ops_role": "catalog-qualification-evidence",
+  "runtime_normative_source": "law/control-families/cognitive-cultural",
+  "root_family_id": "D7",
+  "root_family_canonical_name": "cognitive-cultural",
+  "canonical_domain": "cognitive-cultural.publication-enforcement",
+  "subdomain_seed": "cognitive-cultural.publication-enforcement.default",
+  "ontology_level": "scenario-class-fixture",
+  "normative_layer": "ops-bureau-fixture",
+  "compliance_refs": [
+    "retention-governance"
+  ],
+  "compliance_source": "law/overlays/regulatory/* + law/overlays/sector/*",
+  "compliance_role_in_pack": "reference-only",
+  "runtime_consumer_surface": "yai/embedded/law",
+  "legacy_bridge_surface": "yai/deps/law (fallback-only)"
 }

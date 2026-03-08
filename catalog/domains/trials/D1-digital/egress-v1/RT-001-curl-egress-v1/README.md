@@ -25,7 +25,7 @@ Prove that D1 egress enforcement blocks a real egress attempt path even when the
 
 ## Catalog -> Qualification mapping
 - Catalog trial spec (this folder)
-- Qualification runner: `docs/40-qualification/RT-0.1-001-D1-EGRESS-CURL/`
+- Qualification runner: `evidence/qualification/RT-0.1-001-D1-EGRESS-CURL/`
 
 ## Produced evidence
 - `baseline.json`

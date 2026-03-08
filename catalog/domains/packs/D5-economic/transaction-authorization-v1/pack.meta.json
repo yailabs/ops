@@ -15,9 +15,47 @@
     }
   ],
   "primary_runtime_effect_domain": "providers",
-  "audit_steps": ["trigger", "context", "authority", "decision", "enforcement", "evidence"],
+  "audit_steps": [
+    "trigger",
+    "context",
+    "authority",
+    "decision",
+    "enforcement",
+    "evidence"
+  ],
   "safety": {
     "vector_policy": "safe-only",
     "notes": "Vectors must be simulated or routed to a mock provider. No real funds movement."
-  }
+  },
+  "canonical_law_ref": "law/control-families/economic",
+  "normative_authority": "law",
+  "fixture_role": "qualification-fixture",
+  "ops_role": "catalog-qualification-evidence",
+  "runtime_normative_source": "law/domain-specializations/payments",
+  "root_family_id": "D5",
+  "root_family_canonical_name": "economic",
+  "canonical_domain": "economic.transaction-authorization",
+  "subdomain_seed": "economic.transaction-authorization.default",
+  "ontology_level": "scenario-class-fixture",
+  "normative_layer": "ops-bureau-fixture",
+  "compliance_refs": [
+    "retention-governance",
+    "security-supply-chain",
+    "sector.finance"
+  ],
+  "compliance_source": "law/overlays/regulatory/* + law/overlays/sector/*",
+  "compliance_role_in_pack": "reference-only",
+  "specialization": "payments",
+  "scenario_class": "economic.payments.default",
+  "overlay_refs": {
+    "regulatory": [
+      "retention-governance",
+      "security-supply-chain"
+    ],
+    "sector": [
+      "sector.finance"
+    ]
+  },
+  "runtime_consumer_surface": "yai/embedded/law",
+  "legacy_bridge_surface": "yai/deps/law (fallback-only)"
 }

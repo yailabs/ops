@@ -18,4 +18,4 @@ Prove egress governance blocks an OTEL-style export path to a reachable local co
 - Endpoint: `http://127.0.0.1:8443/v1/traces`
 
 ## Qualification runner
-- `docs/40-qualification/RT-0.1-002-D1-EGRESS-OTEL/`
+- `evidence/qualification/RT-0.1-002-D1-EGRESS-OTEL/`
