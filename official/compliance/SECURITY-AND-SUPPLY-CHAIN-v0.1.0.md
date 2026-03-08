@@ -65,7 +65,7 @@ The following SSDF areas are supported by YAI Ops artifacts and process rules:
     - wave manifests/hashes where applicable
 
 - **Produce well-secured software (PW)**
-  - repeatable verification gates and checks (where integrated via yai-infra and repo tooling)
+  - repeatable verification gates and checks (where integrated via infra and repo tooling)
   - controlled publishing rules and verification outputs
 
 - **Respond to vulnerabilities (RV)**

@@ -46,4 +46,4 @@ I) research boundaries
 - Every wave has MANIFEST.json + INDEX.md + verify output, consistently.
 - Single canonical glossary reused everywhere.
 - v1 schemas exist for produced artifacts.
-- yai-law referenced as authoritative internal baseline (incorporation by reference).
+- law referenced as authoritative internal baseline (incorporation by reference).

@@ -1,14 +1,22 @@
-# YAI Ops
+# YAI Ops (`ops` repository)
 
 YAI Ops is where YAI becomes operationally provable.
 
-It brings evidence, qualification, validation, and publication into one governed layer for trusted deployment and external review.
+Operational repository for YAI Ops. This repo contains the official document set, verifiable evidence bundles (waves), qualification assets, validation outputs, reports, and field collateral.
 
 ## Platform position
 
-`yai-law` → `yai-sdk` → `yai-cli` → `yai` → `yai-ops`
+`law` -> `sdk` -> `cli` -> `yai` -> `ops`
 
 YAI Ops is where conformance becomes operational fact.
+
+## Purpose
+
+ops is the canonical home for:
+- **OFFICIAL**: procurement/funding/partner-ready document set (versioned)
+- **EVIDENCE + WAVES**: append-only evidence bundles with manifests, indices, and verification outputs
+- **CATALOG**: scope map (scenarios, domains, packs, gates, trials)
+- **COLLATERAL**: field collateral aligned to evidence baselines
 
 ## What this repository is
 
@@ -37,7 +45,7 @@ This repository contains the operational proof surfaces of the platform:
 
 YAI Ops owns operational proof and publication discipline.
 
-It does not own platform law (`yai-law`), systems implementation (`yai`), command surfaces (`yai-cli`), SDK interfaces (`yai-sdk`), or shared governance factory standards (`yai-infra`).
+It does not own platform law (`law`), systems implementation (`yai`), command surfaces (`cli`), SDK interfaces (`sdk`), or shared governance factory standards (`infra`).
 
 ## Where to start
 

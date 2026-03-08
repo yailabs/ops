@@ -3,25 +3,35 @@
   "expected": [
     {
       "baseline_id": "baseline-allow",
-      "decision": { "outcome": "deny", "reason_code": "ACTUATOR_NOT_CONTRACTED" },
+      "decision": {
+        "outcome": "deny",
+        "reason_codes_any_of": ["ACTUATOR_NOT_CONTRACTED", "ARMING_REQUIRED"]
+      },
       "enforcement": { "result": "blocked" },
-      "metrics": { "command_executed": false }
+      "metrics": { "command_attempted": true, "command_executed": false }
     },
     {
       "baseline_id": "baseline-deny",
-      "decision": { "outcome": "deny", "reason_code": "ACTUATOR_NOT_CONTRACTED" },
+      "decision": {
+        "outcome": "deny",
+        "reason_codes_any_of": ["ACTUATOR_NOT_CONTRACTED", "ARMING_REQUIRED"]
+      },
       "enforcement": { "result": "blocked" },
-      "metrics": { "command_executed": false }
+      "metrics": { "command_attempted": true, "command_executed": false }
     },
     {
       "baseline_id": "baseline-quarantine",
-      "decision": { "outcome": "deny", "reason_code": "ACTUATOR_NOT_CONTRACTED" },
+      "decision": {
+        "outcome": "deny",
+        "reason_codes_any_of": ["ACTUATOR_NOT_CONTRACTED", "ARMING_REQUIRED"]
+      },
       "enforcement": { "result": "blocked" },
-      "metrics": { "command_executed": false }
+      "metrics": { "command_attempted": true, "command_executed": false }
     }
   ],
   "notes": {
-    "safety_window": "This vector primarily tests contracted-actuator enforcement. Add a second vector later to test SAFETY_WINDOW_VIOLATION explicitly with a contracted actuator but outside allowed window.",
-    "arming": "If arming state is modeled in v0.1 execution, expected outcomes may include ARMING_REQUIRED instead of ACTUATOR_NOT_CONTRACTED when actuator is contracted."
+    "primary_check": "This vector validates contracted-actuator enforcement (non-contracted target).",
+    "follow_up_vector": "Add safe-actuator-cmd-002 to explicitly test SAFETY_WINDOW_VIOLATION using a contracted actuator outside the allowed window.",
+    "arming": "If arming is modeled/enforced, ARMING_REQUIRED may be emitted instead of ACTUATOR_NOT_CONTRACTED depending on evaluation order. Both are acceptable for v0.1 as long as the effect is blocked."
   }
 }

@@ -71,7 +71,7 @@ if [[ ! -x "$YAI_BOOT_BIN" || ! -x "$YAI_ENGINE_BIN" ]]; then
 fi
 
 if [[ -z "$YAI_BIN" || ! -x "$YAI_BIN" ]]; then
-  echo "yai CLI not found (set YAI_BIN or build yai-cli)" >&2
+  echo "yai CLI not found (set YAI_BIN or build cli)" >&2
   exit 1
 fi
 

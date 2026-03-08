@@ -16,7 +16,7 @@ Legal/compliance, security/audit, procurement, and delivery owners evaluating ho
 - Evidence mapping table: `/official/compliance/CONFORMITY-EVIDENCE-MAP-v0.1.0.md`
 - Privacy posture: `/official/compliance/PRIVACY-GDPR-ePRIVACY-v0.1.0.md`
 - Security posture: `/official/compliance/SECURITY-AND-SUPPLY-CHAIN-v0.1.0.md`
-- References and internal baseline: `/official/compliance/REFERENCES-v0.1.0.md` (yai-law incorporation by reference)
+- References and internal baseline: `/official/compliance/REFERENCES-v0.1.0.md` (law incorporation by reference)
 
 ## Operator role positioning (declare per pilot/deployment)
 For each pilot instance, declare which party holds which role(s). Typical pilot posture:
@@ -45,8 +45,8 @@ Legend:
 
 | Obligation area (AI Act) | Role(s) typically impacted | Expected control (high level) | Repo artifact(s) | Evidence anchor | Status |
 |---|---|---|---|---|---|
-| Risk management system | Provider / Deployer | Risk identification, mitigation planning, controlled changes | `/official/assurance/`, `/official/delivery/`, `/catalog/scenarios/`, yai-law contracts/invariants | Customer pilot wave (future) + pilot report | planned |
-| Data governance (where applicable) | Provider / Deployer | Define data categories, access, retention, lineage boundaries | `/official/compliance/PRIVACY-GDPR-ePRIVACY-v0.1.0.md`, yai-law compliance packs | Customer pilot wave (future) | planned |
+| Risk management system | Provider / Deployer | Risk identification, mitigation planning, controlled changes | `/official/assurance/`, `/official/delivery/`, `/catalog/scenarios/`, law contracts/invariants | Customer pilot wave (future) + pilot report | planned |
+| Data governance (where applicable) | Provider / Deployer | Define data categories, access, retention, lineage boundaries | `/official/compliance/PRIVACY-GDPR-ePRIVACY-v0.1.0.md`, law compliance packs | Customer pilot wave (future) | planned |
 | Technical documentation | Provider | Maintain technical dossier, system definition, bounded claims | `/official/tech-dossier/`, `/official/overview/`, `/official/_templates/` | OFFICIAL baseline blocks + SC102 wave references | partial |
 | Logging & traceability | Provider / Deployer | Produce audit-grade logs/evidence for operated workflows | `/evidence/waves/`, `/evidence/reports/`, `/official/assurance/` | `/evidence/waves/SC102-WAVE1-LAUNCH/` (manifest/index/verify) | partial |
 | Instructions for use / operational constraints | Provider | Declare scope, limits, environment assumptions, verification steps | `/official/overview/`, `/official/assurance/`, `/official/delivery/` | SC102 wave + verify pointers | partial |

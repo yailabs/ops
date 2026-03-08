@@ -6,14 +6,14 @@ This is a preparation plan, not the final governance plan.
 
 ## Scope
 
-- Baseline pin alignment checks (`yai` + `yai-cli`)
+- Baseline pin alignment checks (`yai` + `cli`)
 - Deterministic docs/50-validation/proof checks
 - Minimal positive/negative integration checks for control path
 
 ## Preconditions
 
-- `yai`, `yai-cli`, `yai-law` repos available
-- same target baseline commit identified for `deps/yai-law`
+- `yai`, `cli`, `law` repos available
+- same target baseline commit identified for `deps/law`
 - local build is clean enough to run verify commands
 
 ## Commands (minimum)

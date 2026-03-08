@@ -3,22 +3,30 @@
     "timestamp",
     "ws_id",
     "trace_id",
+
     "event.type",
     "event.source",
+
     "principal.id",
     "principal.role",
+
     "target.actuator_id",
     "target.command_id",
     "target.command_params",
+
     "decision.outcome",
     "decision.reason_code",
     "decision.baseline_hash",
+
     "enforcement.result",
+
     "metrics.time_to_decide_ms",
+    "metrics.command_attempted",
     "metrics.command_executed"
   ],
   "notes": {
-    "minimal_disclosure": "Do not emit raw secrets or environment-specific details. Emit stable IDs and redacted params if needed.",
-    "command_executed": "Must be false under deny/quarantine for this pack's vectors (simulation-only)."
+    "minimal_disclosure": "Do not emit raw secrets or environment-specific details. Emit stable IDs and redact params if needed.",
+    "safety": "Simulation-only vectors. No real hardware actuation permitted for v0.1.",
+    "command_executed": "Must be false under deny/quarantine for this pack's vectors."
   }
 }

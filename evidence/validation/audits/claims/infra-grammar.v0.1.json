@@ -45,7 +45,7 @@
       "runbook_refs": [
         "docs/20-program/23-runbooks/contract-baseline-lock.md#phase-0-1-0-pin-baseline-freeze",
         "docs/20-program/23-runbooks/specs-refactor-foundation.md#phase-0-1-3-consumer-yai",
-        "docs/20-program/23-runbooks/specs-refactor-foundation.md#phase-0-1-4-consumer-yai-cli"
+        "docs/20-program/23-runbooks/specs-refactor-foundation.md#phase-0-1-4-consumer-cli"
       ],
       "evidence_required": [
         "tools/bin/yai-check-pins"

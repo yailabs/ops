@@ -34,7 +34,7 @@ Procurement- and funding-ready documentation anchored to verifiable evidence.
    Pilot scope boundaries, acceptance criteria, requirements and constraints.
 
 6) `legal-pack/YAI-Legal-Pack-v0.1.0.md`  
-   Commercial/legal posture for pilots (references yai-law baseline by incorporation).
+   Commercial/legal posture for pilots (references law baseline by incorporation).
 
 ## Evidence entrypoint (canonical)
 - Evidence bundles live under: `/evidence/waves/`
